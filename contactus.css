@@ -37,12 +37,12 @@ h1{
 
 .fish{
 	background-image: url(/img/robotcontact.png);
-	width: 235px;
-	height: 104px;
+	width: 635px;
+	height: 604px;
 	margin-left: -235px;
 	position: absolute;	
-	animation: myfirst 24s;
-	-webkit-animation: myfirst 24s;
+	animation: myfirst 12s;
+	-webkit-animation: myfirst 16s;
 	animation-iteration-count: infinite;
 	-webkit-animation-iteration-count: infinite;
 	animation-timing-function: linear;
@@ -50,13 +50,13 @@ h1{
 }
 
 #fish{
-	top: 120px;
+	top: 20px;
 }
 
 #fish2{
-	top: 260px;
-	animation-delay: 12s;
-	-webkit-animation-delay: 12s;
+	top: 600px;
+	animation-delay: 15s;
+	-webkit-animation-delay: 15s;
 }
 
 
@@ -67,7 +67,7 @@ header{
 
 #form{
 	height: 100%;	
-	background-color: #98d4f3;
+	background-color: #EADDCA;
 	overflow: hidden;
 	position: relative;
 	

@@ -1,0 +1,55 @@
+
+@import url('https://fonts.googleapis.com/css?family=Poppins: 200,300,400,500,600,700,800,900&display=swap');
+  .title{
+  font-family :'Poppins' , sans-serif;
+}
+*
+{
+  margin : 0;
+  padding : 0;
+  box-sizing : border-box;
+  font-family :'Poppins' , sans-serif;
+}
+header{
+  position : fixed;
+  top : 0 ;
+  left : 0;
+  width : 100%;
+  display : flex;
+  justify-content: right;
+  align-items: center;
+  padding: 25px 100px;
+  z-index: 100000 ;
+  transition: 0.6s;
+}
+/* make navbar sticky */
+header .logo{
+  flex:1;
+  height:75px;
+}
+
+header.sticky{
+  padding: 10px 100px;
+  background:#fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+header ul{
+  flex:20;
+  position: relative;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+header ul li{
+  position: relative;
+  list-style:none;
+  font-weight:700;
+}
+header ul li a {
+  position: relative;
+  margin: 0 15px;
+  text-decoration: none; 
+  color:#5F8575;
+  transition:0.6s;
+}
+
