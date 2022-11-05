@@ -12,4 +12,3 @@ function RefreshCanceller(event) {
     event.preventDefault();
     alert('Form submitted!');
   }
-  
