@@ -1,13 +1,58 @@
 @import url(https://fonts.googleapis.com/css?family=Sniglet|Raleway:900);
 
+@import url('https://fonts.googleapis.com/css?family=Poppins: 200,300,400,500,600,700,800,900&display=swap');
 
-
-body, html{
-	height: 100%;
-	padding: 0;
-	margin: 0;
-	font-family: 'Sniglet', cursive;
+*
+{
+  margin : 0;
+  padding : 0;
+  box-sizing : border-box;
+  font-family :'Poppins' , sans-serif;
+  box-sizing: border-box;
 }
+body,html {
+  height: 100%;
+}
+header{
+  position : fixed;
+  top : 0 ;
+  left : 0;
+  width : 100%;
+  display : flex;
+  justify-content: right;
+  align-items: center;
+  padding: 0px 100px;
+  z-index: 100000 ;
+  transition: 0.6s;
+  background-color: white;
+
+}
+/* make navbar sticky */
+header.sticky{
+  padding: 10px 100px;
+  background:#fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+header ul{
+  flex:20;
+  position: relative;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+header ul li{
+  position: relative;
+  list-style:none;
+  font-weight:700;
+}
+header ul li a {
+  position: relative;
+  margin: 0 15px;
+  text-decoration: none; 
+  color:#5F8575;
+  transition:0.6s;
+}
+
 h1{
 	font-weight: normal;
 	font-size: 4em;
@@ -59,58 +104,6 @@ h1{
 	animation-delay: 15s;
 	-webkit-animation-delay: 15s;
 }
-
-*
-{
-  margin : 0;
-  padding : 0;
-  box-sizing : border-box;
-  font-family :'Poppins' , sans-serif;
-}
-header{
-	position : fixed;
-	top : 0 ;
-	left : 0;
-	width : 100%;
-	display : flex;
-	justify-content: right;
-	align-items: center;
-	padding: 0px 100px;
-	z-index: 100000 ;
-	transition: 0.6s;
-	background-color: black;
-  }
-  /* make navbar sticky */
-  header .logo{
-	flex:1;
-	height:75px;
-  }
-  
-  header.sticky{
-	padding: 10px 100px;
-	background:#fff;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  header ul{
-	flex:20;
-	position: relative;
-	display: flex;
-	justify-content: right;
-	align-items: center;
-  }
-  header ul li{
-	position: relative;
-	list-style:none;
-	font-weight:700;
-  }
-  header ul li a {
-	position: relative;
-	margin: 0 15px;
-	text-decoration: none; 
-	color:#5F8575;
-	transition:0.6s;
-  }
-  
 
 #form{
 	height: 100%;	
