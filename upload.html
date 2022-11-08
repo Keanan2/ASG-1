@@ -19,70 +19,61 @@
     </ul>
   </header>
 <body>
-  <div class="service">
+  <!--Instructions-->
+  <div class="instruct">
 		<div class="title">
 			<h2>How does this work?</h2>
 		</div>
 
 		<div class="box">
 			<div class="card">
-				<i class="fa-solid fa-image"></i>
-				<h5>Step 1</h5>
+				<h5>Choose An Image</h5>
 				<div class="pra">
-					<p>Every website should be built with two primary goals: Firstly, it needs to work across all devices. Secondly, it needs to be fast as possible.</p>
-
-					<p style="text-align: center;">
-						<a class="button" href="#">Read More</a>
-					</p>
+					<p>Take a picture of your unwanted electronic and upload it. Make sure that the picture is clear and the product can be seen.</p>
 				</div>
 			</div>
 
 			<div class="card">
-				<i class="far fa-user"></i>
-				<h5>Step 2</h5>
+				<h5>Add A Description</h5>
 				<div class="pra">
-					<p>Every website should be built with two primary goals: Firstly, it needs to work across all devices. Secondly, it needs to be fast as possible.</p>
-
-					<p style="text-align: center;">
-						<a class="button" href="#">Read More</a>
-					</p>
+					<p>Based on what your electronic product is, add a description of what it is. Add details like what is the product
+            , it's condition and any other relevant information.</p>
 				</div>
 			</div>
 
 			<div class="card">
-				<i class="far fa-bell"></i>
-				<h5>Step 3</h5>
+				<h5>Post It!</h5>
 				<div class="pra">
-					<p>Every website should be built with two primary goals: Firstly, it needs to work across all devices. Secondly, it needs to be fast as possible.</p>
-
-					<p style="text-align: center;">
-						<a class="button" href="#">Read More</a>
-					</p>
+					<p>After choosing your picture and adding a description, simply post it! You can view yours and other people's
+            listings under "Marketplace".</p>
 				</div>
 			</div>
 		</div>
 	</div>
-    <div id="main">
-      <h1>Create Listing</h1>
-      <img id="img-display" src="" />
-      <form id="upload-form" onsubmit="UploadFormSubmitHandler(event)">
-        <label class="custom-file-upload">
-          <input
-            accept="image/*"
-            type="file"
-            id="img-input"
-            onchange="UploadHandler(event)"
-            required
-          />
-      </label>
+  <!--Creat listing-->
+  <div id="main">
+    <h1>Create Listing</h1>
+    <img id="img-display" src="" />
+    <form id="upload-form" onsubmit="UploadFormSubmitHandler(event)">
+      <label class="custom-file-upload">
+        <input
+          accept="image/*"
+          type="file"
+          id="img-input"
+          onchange="UploadHandler(event)"
+          required
+        />
+    </label>
 
-        <div id="desc-area">
-          <label for="listing-description">Description:</label>
-          <textarea id="listing-description" maxlength="5000"></textarea>
-        </div>
-        <button class="button-33">Create Listing</button>
-      </form>
-    </div>
+      <div id="desc-area">
+        <label for="listing-description">Description:</label>
+        <textarea id="listing-description" maxlength="5000"></textarea>
+      </div>
+      <button class="button-33">Create Listing</button>
+    </form>
+  </div>
+
+    <!--FAQ Section-->
     <div class="boxfaq">
       <p class="heading">FAQs</p>
       <div class="faqs">
