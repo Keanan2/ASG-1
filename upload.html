@@ -55,15 +55,18 @@
     <h1>Create Listing</h1>
     <img id="img-display" src="" />
     <form id="upload-form" onsubmit="UploadFormSubmitHandler(event)">
-      <label class="custom-file-upload">
-        <input
+      <div class="custom-file-upload">
+        <input style="display:none ;"
           accept="image/*"
           type="file"
           id="img-input"
           onchange="UploadHandler(event)"
           required
         />
-    </label>
+        <label for="img-input" class="addimg">
+          Upload Image
+        </label>
+      </div>
 
       <div id="desc-area">
         <label for="listing-description">Description:</label>
