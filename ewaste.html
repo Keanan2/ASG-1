@@ -17,14 +17,14 @@
       <li><a href = "contactus.html" > Contact Us! </a></li>
     </ul>
   </header>
-  <!--<section class = "banner">
+  <section class = "banner">
+    <script type = "text/javascript">
+        window.addEventListener("scroll",function(){
+          var header =  document.querySelector("header");
+          header.classList.toggle("sticky", window.scrollY > 0);
+        })
+    </script>
   </section>
-  <script type = "text/javascript">
-      window.addEventListener("scroll",function(){
-        var header =  document.querySelector("header");
-        header.classList.toggle("sticky", window.scrollY > 0);
-      })
-  </script>-->
 <body>
   <div class="infoHeader">
 		<div class="title">
@@ -41,6 +41,6 @@
     </div>
     <!-- Add image on the right @Adam-->
   </div>
-
+  <script src = "ewaste.js"></script>
 </body>
 </html>
