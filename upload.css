@@ -41,7 +41,6 @@ header ul{
 header ul li{
   position: relative;
   list-style:none;
-  font-weight:700;
 }
 header ul li a {
   position: relative;
