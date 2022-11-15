@@ -7,26 +7,32 @@
     <title>Document</title>
     <link rel="stylesheet" href="upload.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <script src="./upload.js"></script>
+    <script type="module" src="./upload.js"></script>
+    <style>
+      img{
+        height: 200px;
+        width: 200px;
+        border: 2px black solid;
+      }
+    </style>
   </head>
   <header>
-    <!-- navbar -->
-    <h2>ngee-waste.</h2>
-    <ul>
-      <li><a href = "ewaste.html" > What is E-Waste? </a></li>
-      <li><a href = "marketplace.html" > Marketplace </a></li>
-      <li><a href = "contactus.html" > Contact Us! </a></li>
-      <li><a href = "marketplace.html" > Logout </a></li>
-    </ul>
+      <!-- navbar -->
+        <h2>nge<span>e</span>-waste.</h2>
+        <a href = "ewaste.html" > What is E-Waste? </a>
+        <a href = "marketplace.html" > Marketplace </a>
+        <a href = "contactus.html" > Contact Us! </a>
+        <a href = "index.html"> Log Out</a>
+    
+    <section class = "banner">
+      <script type = "text/javascript">
+          window.addEventListener("scroll",function(){
+            var header =  document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY > 0);
+          })
+      </script>
+    </section>
   </header>
-   <section class = "banner">
-    <script type = "text/javascript">
-        window.addEventListener("scroll",function(){
-          var header =  document.querySelector("header");
-          header.classList.toggle("sticky", window.scrollY > 0);
-        })
-    </script>
-   </section>
 <body>
   <!--Instructions-->
   <div class="instruct">
@@ -62,29 +68,21 @@
 			</div>
 		</div>
 	</div>
-  <!--Creat listing-->
-  <div id="main">
-    <h1>Create Listing</h1>
-    <img id="img-display" src="" />
-    <form id="upload-form" onsubmit="UploadFormSubmitHandler(event)">
-      <div class="custom-file-upload">
-        <input style="display:none ;"
-          accept="image/*"
-          type="file"
-          id="img-input"
-          onchange="UploadHandler(event)"
-          required
-        />
-        <label for="img-input" class="addimg">
-          Upload Image
-        </label>
-      </div>
+  <div clas="listingcontainer">
+    
+  </div>
 
-      <div id="desc-area">
-        <label for="listing-description">Description:</label>
-        <textarea id="listing-description" maxlength="5000"></textarea>
-      </div>
-      <button class="button-33">Create Listing</button>
+  <!--Listing description-->
+  <div id="main">
+    <label>Image Name</label> <input type="text" id="namebox"> <label id="extlab"></label> <br><br>
+    <img id="myimg"> <label id="upprogress"></label> <br><br>
+
+    <button for="img-input" class="addimg" id="selbtn">Select Image</button>
+    <div id="desc-area">
+      <label for="listing-description">Description:</label>
+      <textarea id="listing-description" maxlength="5000"></textarea>
+    </div>
+    <button for="img-input" class="addimg" id="upbtn">Create Listing</button>
     </form>
     
   </div>
@@ -95,17 +93,28 @@
       <p class="heading">Frequently Asked Questions</p>
       <div class="faqs">
          <details>
-            <summary>What is Lorem ipsum?</summary>
-            <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <summary>Do we have to meet up with someone to donate?</summary>
+            <p class="text">No you do not. It is similar to Carousel, however, all you need to do is 
+              drop your electronic into the box at the designated location.
+            </p>
          </details>
          <details>
-            <summary>What is Lorem ipsum?</summary>
-            <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <summary>Where can we donate our electronic products?</summary>
+            <p class="text">The box for donation will be placed inside Capstone Project room at Blk 31 Level 5.</p>
          </details>
          <details>
-            <summary>What is Lorem ipsum?</summary>
-            <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <summary>What do we get for donating?</summary>
+            <p class="text">There will be a QR code for you to scan to attain CCA points for participation.
+              Donors will be automatically entered into a giveaway where you stand a chance to win a gift card 
+              of your choice at the end of the semester.
+            </p>
          </details>
+         <details>
+          <summary>Can we just take any item inside the box?</summary>
+          <p class="text">Yes you can, however it incurs a small token fee of $3-$8; prices vary depending on the type
+            of product being taken.
+          </p>
+       </details>
       </div>
    </div>
   </div>

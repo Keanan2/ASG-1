@@ -7,20 +7,45 @@
   box-sizing : border-box;
   font-family :'Poppins' , sans-serif;
   box-sizing: border-box;
+  
 }
-body {
+html,body {
   font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  
 }
 
 header{
   display: flex;
   width: 100%;
-  height: 20px;
+  height: 50px;
   align-items: center;
   justify-content: center;
   margin: auto;
-  padding-top: 20px;
 }
+.title {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.title h1 {
+	font-size: 8vw;
+	font-weight: 900;
+  color: white;
+	background-color: black;
+	display: block;
+  padding: 2rem;
+}
+
+.title h1:nth-child(2) {
+	position: absolute;
+	background-color: #fff;
+	color: black;
+	clip-path: inset(-1% -1% 50% -1%);
+}
+
 header h2{
   margin-right: 500px;
   -webkit-text-stroke: 0.5px white;
@@ -67,7 +92,6 @@ header a:hover:after{
   align-items: center;
 	background: white;
 	width: 100%;
-	padding-top: 20px;
 }
 .title h2{
   position: relative;
@@ -88,25 +112,6 @@ header a:hover:after{
   font-size: 19px;
   background-color: white;
   line-height: 40px;
-}
-#toTopBtn {
-  display: none; /* Hidden by default */
-  position: fixed; /* Fixed/sticky position */
-  bottom: 20px; /* Place the button at the bottom of the page */
-  right: 30px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
-  border: none; /* Remove borders */
-  outline: none; /* Remove outline */
-  background-color: red; /* Set a background color */
-  color: white; /* Text color */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 15px; /* Some padding */
-  border-radius: 10px; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
-}
-
-#toTopBtn:hover {
-  background-color: #555; /* Add a dark-grey background on hover */
 }
 :root {
   --gap: -200px;
@@ -654,7 +659,10 @@ input[type="checkbox"]{
 }
 #timeline {
   display: flex;
-  background-color: #031625;
+  background-color: azure;
+  border:solid 40px;
+  border-color: #afeeee;
+  margin-top: -90px;
 }
 #timeline:hover .tl-item {
   width: 23.3333%;
@@ -669,6 +677,10 @@ input[type="checkbox"]{
   color: #fff;
   overflow: hidden;
   transition: width 0.5s ease;
+  border:4px solid;
+  border-color: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(114,253,45,1) 100%);
+
+
 }
 .tl-item:before, .tl-item:after {
   transform: translate3d(0, 0, 0);
@@ -677,12 +689,15 @@ input[type="checkbox"]{
   left: 0;
   top: 0;
   width: 100%;
+  
   height: 100%;
 }
 .tl-item:after {
   background: rgba(3, 22, 37, 0.85);
   opacity: 1;
   transition: opacity 0.5s ease;
+  
+
 }
 .tl-item:before {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 75%);
@@ -690,6 +705,7 @@ input[type="checkbox"]{
   opacity: 0;
   transform: translate3d(0, 0, 0) translateY(50%);
   transition: opacity 0.5s ease, transform 0.5s ease;
+  
 }
 .tl-item:hover {
   width: 30% !important;
@@ -728,19 +744,13 @@ input[type="checkbox"]{
   font-weight: normal;
 }
 
-.tl-year {
+.tl-icon {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   z-index: 1;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
-}
-.tl-year p {
-  font-family: "Pathway Gothic One", Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 1.728rem;
-  line-height: 0;
+  font-size: 40px;
 }
 
 .tl-bg {
@@ -755,6 +765,39 @@ input[type="checkbox"]{
   transition: filter 0.5s ease;
   filter: grayscale(100%);
 }
-.cock h2{
-   margin-left:-900px;
+
+.cock{
+  height:300px;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1191%26quot%3b)' fill='none'%3e%3cpath d='M 0%2c77 C 36%2c107.6 108%2c242.6 180%2c230 C 252%2c217.4 288%2c22.2 360%2c14 C 432%2c5.8 468%2c188.8 540%2c189 C 612%2c189.2 648%2c7.8 720%2c15 C 792%2c22.2 828%2c206.2 900%2c225 C 972%2c243.8 1008%2c116.6 1080%2c109 C 1152%2c101.4 1188%2c203.8 1260%2c187 C 1332%2c170.2 1404%2c57.4 1440%2c25L1440 560L0 560z' fill='rgba(53%2c 211%2c 109%2c 1)'%3e%3c/path%3e%3cpath d='M 0%2c506 C 57.6%2c485.6 172.8%2c396.8 288%2c404 C 403.2%2c411.2 460.8%2c565.2 576%2c542 C 691.2%2c518.8 748.8%2c311.4 864%2c288 C 979.2%2c264.6 1036.8%2c407.6 1152%2c425 C 1267.2%2c442.4 1382.4%2c385 1440%2c375L1440 560L0 560z' fill='rgba(57%2c 165%2c 36%2c 1)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1191'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
 }
+.cock h2{
+  margin-top:200px;
+   margin-left:600px;
+   margin-bottom:300px;
+   font-size:80px; 
+	font-weight:900;
+  transform: translate(-50%, -50%);
+  -webkit-text-fill-color: transparent;
+  text-shadow: 
+						8px 8px #FFC901,
+						20px 20px #A8CCF3;
+          
+  text-shadow: 
+						8px 8px #FFC901,
+						20px 20px #A8CCF3;
+}
+.top {
+  --offset: 50px; 
+  position: sticky;
+  bottom: 20px;      
+  place-self: end;
+  margin-top: calc(100vh + var(--offset));
+  /* visual styling */
+  text-decoration: none;
+  padding: 10px;
+  color: #fff;
+  background: #000;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
