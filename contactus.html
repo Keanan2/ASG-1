@@ -13,48 +13,38 @@
     <title>Contact us!</title>
 </head>
 <header>
-    <!-- navbar -->
-      <h2>nge<span>e</span>-waste.</h2>
-      <a href = "ewaste.html" > What is E-Waste? </a>
-      <a href = "upload.html" > Post It Here! </a>
-      <a href = "marketplace.html" > Marketplace </a>
-      <a href = "index.html"> Log Out</a>
-  
-  <section class = "banner">
-    <script type = "text/javascript">
-        window.addEventListener("scroll",function(){
-          var header =  document.querySelector("header");
-          header.classList.toggle("sticky", window.scrollY > 0);
-        })
-    </script>
-  </section>
+  <!-- navbar -->
+    <h2>nge<span>e</span>-waste.</h2>
+    <a href = "ewaste.html" > What is E-Waste? </a>
+    <a href = "upload.html" > Post It Here! </a>
+    <a href = "marketplace.html" > Marketplace </a>
+    <a href = "index.html"> Log Out</a>
+
 </header>
 <body>
     <form class="my-form" action="https://formsubmit.co/justinchenjunrui@gmail.com" method="POST">
         <div class="container">
           <h1>Contact Us!</h1>
+          <div class="radiocontainer">
+            <input type="radio" id="Enquiry" name="Reason for contacting" value="Enquiry">
+            <label for="Enquiry">Enquiry</label>
+          
+            <input type="radio" id="Reserve" name="Reason for contacting" value="Reserve/Buy">
+            <label for="Reserve">Reserve/Buy</label>
+          </div>
           <ul>
             <li>
-              <select>
-                <option selected disabled>-- Please choose an option --</option>
-                <option>Reserve/Buy A Listing</option>
-                <option>Send An Enquiry</option>      
-              </select>
-            </li>
-            <li>
-              <div class="grid grid-2">
-                <input type="text" placeholder="Name" required>  
-                <input type="text" placeholder="Surname" required>
+              <div class="grid grid-1">
+                <input type="text" name="Name" placeholder="Full Name" required>  
               </div>
             </li>
             <li>
-              <div class="grid grid-2">
-                <input type="email" placeholder="Email" required>  
-                <input type="tel" placeholder="Phone">
+              <div class="grid grid-1">
+                <input type="email" name="Email"placeholder="School Email" required>  
               </div>
             </li>    
             <li>
-              <textarea placeholder="Message"></textarea>
+              <input type="text" name="Message" placeholder="Message"></textarea>
             </li>   
             <li>
               <input type="checkbox" id="terms">
@@ -81,6 +71,6 @@
         </div>
       </form>
     <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js"></script>
-    <script src="./contactjs.js"></script>
+    <script src="contactjs2.js"></script>
     </body>
 </html>
