@@ -9,7 +9,7 @@
 <body>
     <div>
         <h3>Sign up Page</h3>
-        <input type="email" placeholder=""Type your email" id="email">
+        <input type="email" placeholder="Type your email" id="email">
         <input type="password" placeholder="Enter your password" id="password">
         <br>
         <button id="signUp">Sign Up</button>
@@ -32,7 +32,7 @@
         };
       
         // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
+        const test = firebase.initializeApp(firebaseConfig);
 
             
         document.getElementById('signUp').addEventListener('click', signUpUser)
