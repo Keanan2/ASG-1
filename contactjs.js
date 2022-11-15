@@ -1,72 +1,53 @@
 const firebaseConfig = {
-	apiKey: "AIzaSyAwG7RePlLNiGGfs61BttyXserKakBlq74",
-	authDomain: "pfd-asg-1.firebaseapp.com",
-	databaseURL: "https://pfd-asg-1-default-rtdb.asia-southeast1.firebasedatabase.app",
-	projectId: "pfd-asg-1",
-	storageBucket: "pfd-asg-1.appspot.com",
-	messagingSenderId: "683817910117",
-	appId: "1:683817910117:web:6bc464138c242c9853eb8c",
-	measurementId: "G-PCCLL01552"
-  };
-  
-  //Initialize firebase
-  firebase.initializeApp(firebaseConfig);
-  
-  //Reference the database
-  var contactFormDB = firebase.database().ref('contactForm')
-  
-  document.getElementById('contactForm').addEventListener('submit', submitForm)
-  
-  function submitForm(e) {
-	e.preventDefault();
-  
-	var name = getElementVal('name');
-	var email = getElementVal('email');
-	var message = getElementVal('message');
-  }
-  
-  const saveMessages = (name, email, message) => {
-	var newContactForm = contactFormDB.push();
+    apiKey: "AIzaSyAwG7RePlLNiGGfs61BttyXserKakBlq74",
+    authDomain: "pfd-asg-1.firebaseapp.com",
+    databaseURL: "https://pfd-asg-1-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "pfd-asg-1",
+    storageBucket: "pfd-asg-1.appspot.com",
+    messagingSenderId: "683817910117",
+    appId: "1:683817910117:web:6bc464138c242c9853eb8c",
+    measurementId: "G-PCCLL01552"
+};
 
-	newContactForm.set({
-		name : name,
-		email : email,
-		message : message,
-	})
-  }
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
-  const getElementVal = (id) => {
-	return document.getElementById(id).value;
-  }
+// reference your database
+var contactFormDB = firebase.database().ref("contactForm");
 
-$('document').ready(function(){
-	$('input[type="text"], input[type="email"], textarea').focus(function(){
-		var background = $(this).attr('id');
-		$('#' + background + '-form').addClass('formgroup-active');
-		$('#' + background + '-form').removeClass('formgroup-error');
-	});
-	$('input[type="text"], input[type="email"], textarea').blur(function(){
-		var background = $(this).attr('id');
-		$('#' + background + '-form').removeClass('formgroup-active');
-	});
+document.getElementById("contactForm").addEventListener("submit", submitForm);
 
-function errorfield(field){
-	$(field).addClass('formgroup-error');
-	console.log(field);	
+function submitForm(e) {
+  e.preventDefault();
+
+  var name = getElementVal("name");
+  var emailid = getElementVal("emailid");
+  var msgContent = getElementVal("msgContent");
+
+  saveMessages(name, emailid, msgContent);
+
+  //   enable alert
+  document.querySelector(".alert").style.display = "block";
+
+  //   remove the alert
+  setTimeout(() => {
+    document.querySelector(".alert").style.display = "none";
+  }, 3000);
+
+  //   reset the form
+  document.getElementById("contactForm").reset();
 }
 
-$("#waterform").submit(function() {
-	var stopsubmit = false;
+const saveMessages = (name, emailid, msgContent) => {
+  var newContactForm = contactFormDB.push();
 
-if($('#name').val() == "") {
-	errorfield('#name-form');
-	stopsubmit=true;
-}
-if($('#email').val() == "") {
-	errorfield('#email-form');
-	stopsubmit=true;
-}
-  if(stopsubmit) return false;
-});
-		
-});
+  newContactForm.set({
+    name: name,
+    emailid: emailid,
+    msgContent: msgContent,
+  });
+};
+
+const getElementVal = (id) => {
+  return document.getElementById(id).value;
+};

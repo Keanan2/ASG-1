@@ -23,6 +23,11 @@ header{
 }
 header h2{
   margin-right: 500px;
+  -webkit-text-stroke: 0.5px white;
+	-webkit-text-fill-color: black;
+}
+header span{
+  -webkit-text-fill-color: #60c045;
 }
 /* make navbar sticky */
 header.sticky{
@@ -38,7 +43,7 @@ header a {
   color:black;
 }
 header a:hover{
-  color:black;
+  color: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(114,253,45,0.7818507863514459) 100%);
 }
 
 header a:after{
@@ -84,7 +89,25 @@ header a:hover:after{
   background-color: white;
   line-height: 40px;
 }
+#toTopBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: red; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
 
+#toTopBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
 :root {
   --gap: -200px;
   --circle-size: 200px;
@@ -481,7 +504,7 @@ header a:hover:after{
   margin: 200px;
   border-radius: 25px;
   background: white;
-  box-shadow: 0px 10px 50px rgba(252,56,56,.3);
+  box-shadow: 0px 10px 50px rgba(114,253,45,0.7818507863514459);
 }
 .inner-part{
   position: absolute;
@@ -501,7 +524,7 @@ header a:hover:after{
   flex-shrink: 0;
   overflow: hidden;
   border-radius: 20px;
-  box-shadow: 2px 3px 15px rgba(252,56,56,.1);
+  box-shadow: 2px 3px 15px rgba(67,161,20,0.7818507863514459);
 }
 #imgTap:checked ~ .inner-part .img{
   height: 370px;
@@ -560,25 +583,27 @@ header a:hover:after{
   font-size: 19px;
   margin-bottom: 30px;
   line-height: 1.5em;
-  text-align: justify;
+  text-align: start;
 }
-.content button{
+.content a{
   display: inline-flex;
   padding: 15px 20px;
   border: none;
   font-size: 16px;
   text-transform: uppercase;
+  text-decoration: none;
   color: #fff0e6;
   font-weight: 600;
   letter-spacing: 1px;
   border-radius: 50px;
   cursor: pointer;
   outline: none;
-  border: 1px solid #fd3535;
-  background: linear-gradient(147deg, #fe8a39  0%, #fd3838 74%);
+  
+  background: rgb(34,193,195);
+  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(114,253,45,0.7818507863514459) 100%);
 }
 .content button:hover{
-  background: linear-gradient(147deg, #fe791b 0%, #fd1c1c 74%);
+  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(114,253,45,0.7818507863514459) 100%);
 }
 .sliders{
   position: absolute;
@@ -610,7 +635,8 @@ header a:hover:after{
   left: 0;
   height: 100%;
   width: -100%;
-  background: linear-gradient(147deg,#f6b323 0%, #f23b26 74%);
+  background: rgb(34,193,195);
+  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(114,253,45,1) 100%);
   border-radius: 10px;
   transform: scaleX(0);
   transition: transform .6s;
@@ -728,4 +754,7 @@ input[type="checkbox"]{
   background-position: center center;
   transition: filter 0.5s ease;
   filter: grayscale(100%);
+}
+.cock h2{
+   margin-left:-900px;
 }
