@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="normalize.css" rel="stylesheet" type="text/css"> <!--Normalize CSS-->
+    <link href="signup.css" rel="stylesheet" type="text/css" />
+    <title>Sign Up Page</title>
 </head>
 <body>
-    <div>
-        <h3>Sign up Page</h3>
-        <input type="email" placeholder="Type your email" id="email">
-        <input type="password" placeholder="Enter your password" id="password">
-        <br>
-        <button id="signUp">Sign Up</button>
+    <div class="form">
+        <center>
+            <input type="email" placeholder="Enter student email" id="email" required><br>
+            <input type="password" placeholder="Enter your password" id="password" required><br><br>
+            <button id="loginBtn"><a href="ewaste.html" style="text-decoration:none; color: white;">Sign Up</a></button><br>
+        </center>
     </div>
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>

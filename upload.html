@@ -7,12 +7,46 @@
     <title>Upload Listing</title>
     <link rel="stylesheet" href="upload.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <script type="module" src="./upload.js"></script>
+    <!--<script type="module" src="./upload.js"></script>-->
     <style>
+      .imagesDivStyle{
+        
+        position:absolute;
+        margin-top: 125px;
+        margin-right:900px;
+      }
+
+      .imgs{
+        height: 200px;
+        width: 350px;
+        border: 5px dashed;
+        border-color: white;
+        border-radius:25px;
+        margin: 2px;
+      }
+
+      /*
       img{
         height: 200px;
         width: 200px;
         border: 2px black solid;
+      }*/
+
+      #pdlab{
+        vertical-align: top;
+      }
+
+      #addprodbtn, #selimgsbtn{
+        float:right;
+        margin-left: 10px;
+      }
+
+      #controldiv{
+        width: 740px;
+      }
+
+      #loadlab{
+        width: 200px;
       }
     </style>
   </head>
@@ -53,7 +87,7 @@
 				<h5>Add A Description</h5>
 				<div class="pra">
           <i class="bi bi-chat-dots"style="font-size:3rem;"></i>
-					<p>Based on what your electronic product is, add a description of what it is. Add details like what is the product
+					<p>Based on what your electronic product is, add a description of what it is. Add details like what the product is
             , it's condition and any other relevant information.</p>
 				</div>
 			</div>
@@ -68,25 +102,21 @@
 			</div>
 		</div>
 	</div>
-  <div clas="listingcontainer">
-    
-  </div>
 
   <!--Listing description-->
-  <div id="main">
-    <label>Image Name</label> <input type="text" id="namebox"> <label id="extlab"></label> <br><br>
-    <img id="myimg"> <label id="upprogress"></label> <br><br>
-
-    <button for="img-input" class="addimg" id="selbtn">Select Image</button>
-    <div id="desc-area">
-      <label for="listing-description">Description:</label>
-      <textarea id="listing-description" maxlength="5000"></textarea>
+  <div class="listingcontainer">
+    <div class="listingcontent">
+      <label><b>Product Name :</label></b> <input type="text" id="nameinp"> <br><br>
+      <label id="pdlab"><b>Product Description :</label></b> <textarea id="desarea"></textarea><br><br>
     </div>
-    <button for="img-input" class="addimg" id="upbtn">Create Listing</button>
-    </form>
-    
-  </div>
+    <div id="imagesDiv"></div>
 
+  </div>
+  <div id="controldiv">
+    <label id='loadlab' hidden >Uploading 1 of 3</label>
+    <button id="selimgsbtn" class="bn59">Select Images</button>
+    <button id="addprodbtn" class="bn59">Add Product</button>
+</div>
     <!--FAQ Section-->
   <div class = "faqcontainer">
     <div class="boxfaq">
@@ -94,13 +124,13 @@
       <div class="faqs">
          <details>
             <summary>Do we have to meet up with someone to donate?</summary>
-            <p class="text">No you do not. It is similar to Carousel, however, all you need to do is 
-              drop your electronic into the box at the designated location.
+            <p class="text">No you do not. It is similar to the Carousell app, however, you do need to 
+              drop your electronics into the box at the designated location.
             </p>
          </details>
          <details>
             <summary>Where can we donate our electronic products?</summary>
-            <p class="text">The box for donation will be placed inside Capstone Project room at Blk 31 Level 5.</p>
+            <p class="text">The box for donations will be placed inside the Capstone Project room at Blk 31 Level 5.</p>
          </details>
          <details>
             <summary>What do we get for donating?</summary>
@@ -112,12 +142,186 @@
          <details>
           <summary>Can we just take any item inside the box?</summary>
           <p class="text">Yes you can, however it incurs a small token fee of $3-$8; prices vary depending on the type
-            of product being taken.
+            of product being taken. Contact us for more information about the prices of the products using the Contact Us
+            page.
           </p>
        </details>
       </div>
    </div>
   </div>
   <a href="#" class="top">Back to Top &#8593;</a>
+
+  <script type="module">
+  // Variables and references
+  var Files = [];
+  var FileReaders = [];
+  var ImageLinksArray = [];
+
+  const imgdiv = document.getElementById('imagesDiv');
+  const selBtn = document.getElementById('selimgsbtn');
+  const addBtn = document.getElementById('addprodbtn');
+  const proglab = document.getElementById('loadlab');
+
+  const name = document.getElementById('nameinp');
+  const description = document.getElementById('desarea');
+
+  function OpenFileDialog(){
+    let inp = document.createElement('input');
+    inp.type = 'file';
+    inp.multiple = 'multiple';
+
+    inp.onchange = (e) => {
+      AssignImgsToFilesArray(e.target.files);
+      CreateImgTags();
+    }
+
+    inp.click();
+  }
+  
+  function AssignImgsToFilesArray(thefiles){
+    let num = Files.length + thefiles.length;
+    let looplim = (num<=1) ? thefiles.length : (1-Files.length);
+
+    for (let i = 0; i < looplim; i++){
+      Files.push(thefiles[i]);
+    }
+
+    if (num>1) alert("Only 1 image is allowed!");
+  }
+
+  function CreateImgTags(){
+    imgdiv.innerHTML='';
+    imgdiv.classList.add('imagesDivStyle');
+
+    for (let i = 0; i < Files.length; i++){
+      FileReaders[i] = new FileReader();
+
+      FileReaders[i].onload = function(){
+        var img = document.createElement('img');
+        img.id = 'imgNo' + i;
+        img.classList.add('imgs');
+        img.src = FileReaders[i].result;
+        imgdiv.append(img);
+      }
+      FileReaders[i].readAsDataURL(Files[i]);
+    }
+
+    let lab = document.getElementById('label');
+    lab.innerHTML = '';
+    lab.style = 'cursor:pointer;display:block;color:navy; font-size:12px';
+    lab.addEventListener('click', ClearImages);
+    imgdiv.append(lab);
+  }
+
+  function ClearImages(){
+    Files=[];
+    ImageLinksArray=[];
+    imgdiv.innerHTML='';
+    imgdiv.classList.remove('imagesDivStyle')
+  }
+
+  function getShortTitle(){
+    let namey = name.value.substring(0,50);
+    return namey.replace(/[^a-zA-Z0-9]/g,"");
+  }
+
+  function GetImgUploadProgress(){
+    return 'Images Uploaded ' + ImageLinksArray.length + ' of ' + Files.length;
+  }
+
+  function IsAllImagesUploaded(){
+    return ImageLinksArray.length == Files.length;
+  }
+
+  function RestoreBack(){
+    selBtn.disabled = false;
+    addBtn.disabled = false;
+  }
+
+  //------------------------ EVENTS ------------------------
+
+  selBtn.addEventListener('click', OpenFileDialog);
+  addBtn.addEventListener('click', UploadAllImages);
+
+  //------------------------UPLOAD IMAGE TO FIREBASE STORAGE--------------
+
+  function UploadAllImages(){
+    selBtn.disabled = true;
+    addBtn.disabled = true;
+
+    ImageLinksArray = [];
+
+    for (let i = 0; i < Files.length; i++){
+      UploadAnImage(Files[i], i);
+    }
+  }
+
+  function UploadAnImage(imgToUpload, imgNo){
+    const metadata = {
+      contentType: imgToUpload.type
+    };
+
+    const storage = getStorage();
+
+    const ImageAddress = "TheImages/" + getShortTitle() + "/img#" + (imgNo+1);
+
+    const storageRef = sRef(storage, ImageAddress);
+
+    const UploadTask = uploadBytesResumable(storageRef, imgToUpload, metadata);
+    
+    UploadTask.on('state_changed', (snapshot) =>{
+        proglab.innerHTML = GetImgUploadProgress();
+    },
+
+    (error) => {
+        alert("Error: Image failed to upload. Please try again.")
+    },
+
+    ()=>{
+        getDownloadURL(UploadTask.snapshot.ref).then((downloadURL) =>{
+            ImageLinksArray.push(downloadURL);
+            if(IsAllImagesUploaded()){
+              proglab.innerHTML = "All images successfully uploaded.";
+              UploadAProduct();
+            }
+        });
+      }
+    );
+  }
+
+  //--------------------IMPORTS + CONFIGRATION----------------------
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+  import { getDatabase, ref, set, child, get } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+  import { getStorage, ref as sRef, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js";
+
+  const firebaseConfig = {
+  apiKey: "AIzaSyAwG7RePlLNiGGfs61BttyXserKakBlq74",
+  authDomain: "pfd-asg-1.firebaseapp.com",
+  databaseURL: "https://pfd-asg-1-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "pfd-asg-1",
+  storageBucket: "pfd-asg-1.appspot.com",
+  messagingSenderId: "683817910117",
+  appId: "1:683817910117:web:6bc464138c242c9853eb8c",
+  measurementId: "G-PCCLL01552"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  
+  const realdb = getDatabase();
+
+  //----------------------UPLOAD A PRODUCT---------------------
+  function UploadAProduct(){
+    set(ref(realdb, "TheProductRealdb/"+ getShortTitle()),{
+        ProductTitle: name.value,
+        Description: description.value,
+        LinksOfImagesArray: ImageLinksArray
+    });
+
+    alert("Upload successful!");
+    RestoreBack();
+  }
+
+  </script>
   </body>
 </html>

@@ -1,3 +1,26 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAwG7RePlLNiGGfs61BttyXserKakBlq74",
+  authDomain: "pfd-asg-1.firebaseapp.com",
+  databaseURL: "https://pfd-asg-1-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "pfd-asg-1",
+  storageBucket: "pfd-asg-1.appspot.com",
+  messagingSenderId: "683817910117",
+  appId: "1:683817910117:web:6bc464138c242c9853eb8c",
+  measurementId: "G-PCCLL01552"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+import { getStorage, ref as sRef, uploadBytesResumable, getDownloadURL }
+from "https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js"
+
+import { getDatabase, ref, set, child, get}
+from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js"
+const realdb = getDatabase();
+
 // Variables and references
 var Files = [];
 var FileReaders = [];
@@ -8,7 +31,7 @@ const selBtn = document.getElementById('selimgsbtn');
 const addBtn = document.getElementById('addprodbtn');
 const proglab = document.getElementById('loadlab');
 
-const name = document.getElementById('nameinp');
+//const name = document.getElementById('nameinp');
 const description = document.getElementById('desarea');
 
 function OpenFileDialog(){
@@ -52,14 +75,14 @@ function CreateImgTags(){
     FileReaders[i].readAsDataURL(Files[i]);
   }
 
-  let lab = document.getElementById('label');
-  lab.innerHTML = 'clear images';
-  lab.style = 'cursor:pointer;display:block;color:navy; font-size:12px';
-  lab.addEventListener('click', ClearImages);
-  imgdiv.append(lab);
+  //let lab = document.getElementById('label');
+  //lab.innerHTML = 'clear images';
+  //lab.style = 'cursor:pointer;display:block;color:navy; font-size:12px';
+  //lab.addEventListener('click', ClearImages);
+  //imgdiv.append(lab);
 }
 
-
+/*
 function ClearImages(){
   File=[];
   ImageLinksArray=[];
@@ -84,39 +107,16 @@ function RestoreBack(){
   selBtn.disabled = false;
   addBtn.disabled = false;
 }
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAwG7RePlLNiGGfs61BttyXserKakBlq74",
-  authDomain: "pfd-asg-1.firebaseapp.com",
-  databaseURL: "https://pfd-asg-1-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "pfd-asg-1",
-  storageBucket: "pfd-asg-1.appspot.com",
-  messagingSenderId: "683817910117",
-  appId: "1:683817910117:web:6bc464138c242c9853eb8c",
-  measurementId: "G-PCCLL01552"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-import { getStorage, ref as sRef, uploadBytesResumable, getDownloadURL }
-from "https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js"
-
-import { getDatabase, ref, set, child, get}
-from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js"
-const realdb = getDatabase();
-
+*/
 
 //------------------------ EVENTS ------------------------
 
 selBtn.addEventListener('click', OpenFileDialog);
 
 
-addBtn.addEventListener('click', UploadAllImages);
+//addBtn.addEventListener('click', UploadAllImages);
 
-
+/*
 //------------------------UPLOAD IMAGE TO FIREBASE STORAGE--------------
 function UploadAllImages(){
   selBtn.disabled = true;
@@ -159,7 +159,10 @@ function UploadAnImage(ImgToUpload, imgNo){
     }
     );
 }
+*/
 
+
+/*
 //-------------------------UPLOADED A PRODUCT----------------------
 function UploadAProduct(){
   set(ref(realdb, "TheProductRealdb/"+ getShortTitle()),{
@@ -171,4 +174,4 @@ function UploadAProduct(){
   alert("Upload successfully!");
   RestoreBack();
 }
-
+*/

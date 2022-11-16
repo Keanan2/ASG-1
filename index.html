@@ -6,15 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="normalize.css" rel="stylesheet" type="text/css"> <!--Normalize CSS-->
     <link href="index.css" rel="stylesheet" type="text/css" />
+
     <title>Login Page</title>
 </head>
 <body>
     <div class="form">
         <center>
-            <input type="email" placeholder="Enter student email" id="email"><br>
-            <input type="password" placeholder="Enter password" id="password"<br><br><br>
-            <button id="loginBtn"><a style="text-decoration:none;">Login</a></button><br>
-        </center>
+            <input type="email" placeholder="Enter student email" id="email" required><br>
+            <input type="password" placeholder="Enter password" id="password" required><br><br>
+            <button id="loginBtn"><a href="ewaste.html" style="text-decoration:none; color: white;">Click me to login!</a></button><br>
+            <p style="color:white">Dont have an account? <em><a href="signUp.html" style="text-decoration: none; color:white">Sign up here!</a></em></p>
+        </center>   
+    </div>
+
+    <div class="sourcecontainer" id="footer">
+        <h3>Image sourced by <em><a href="https://hackaday.com/2019/02/20/the-woeful-world-of-worldwide-e-waste/" style="text-decoration:none; color:white">
+            Hackaday</a></em></h3>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
@@ -81,5 +88,6 @@
         */
 
       </script>
+       
 </body>
 </html>
