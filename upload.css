@@ -302,3 +302,35 @@ details summary{
   opacity: 1;
   color:#fff;
 }
+.imagesDivStyle{
+        
+  position:absolute;
+  margin-top: 125px;
+  margin-right:900px;
+}
+
+.imgs{
+  height: 200px;
+  width: 350px;
+  border: 5px dashed;
+  border-color: white;
+  border-radius:25px;
+  margin: 2px;
+}
+
+#pdlab{
+  vertical-align: top;
+}
+
+#addprodbtn, #selimgsbtn{
+  float:right;
+  margin-left: 10px;
+}
+
+#controldiv{
+  width: 740px;
+}
+
+#loadlab{
+  width: 200px;
+}
