@@ -1,61 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="normalize.css" rel="stylesheet" type="text/css"> <!--Normalize CSS-->
-    <link href="signup.css" rel="stylesheet" type="text/css" />
-    <title>Sign Up Page</title>
-</head>
-<body>
-    <div class="form">
-        <center>
-            <input type="email" placeholder="Enter student email" id="email" required><br>
-            <input type="password" placeholder="Enter your password" id="password" required><br><br>
-            <button id="loginBtn"><a href="ewaste.html" style="text-decoration:none; color: white;">Sign Up</a></button><br>
-        </center>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="signup.css" />
+    <title>Login In Page</title>
+  </head>
+  <header>
+    <!-- navbar -->
+    <div id="navbar">
+      <div id="navbar-content">
+        <h2>nge<span>e</span>-waste.</h2>
+        <a href="landingpage.html">Homepage</a>
+      </div>
     </div>
+  </header>
+  <body>
+    <div class="hero">
+      <!--Top buttons-->
+      <div class="form-box">
+        <div class="button-box">
+          <div id="btn"></div>
+          <button type="button" class="toggle-btn" onclick="login()">
+            Login
+          </button>
+          <button type="button" class="toggle-btn" onclick="register()">
+            Register
+          </button>
+        </div>
+        <!--Login form-->
+        <form id="login" class="input-group">
+          <input
+            type="text"
+            class="input-field"
+            placeholder="User ID"
+            required
+          />
+          <input
+            type="text"
+            class="input-field"
+            placeholder="Enter Password"
+            required
+          />
+          <input type="checkbox" class="check-box" /><span class="sform"
+            >Remember Password</span
+          >
+          <button type="submit" class="submit-btn">Log In</button>
+        </form>
+        <!--Register form-->
+        <form id="register" class="input-group">
+          <input
+            type="text"
+            class="input-field"
+            placeholder="User ID"
+            required
+          />
+          <input
+            type="email"
+            class="input-field"
+            placeholder="Student Email"
+            required
+          />
+          <input
+            type="text"
+            class="input-field"
+            placeholder="Enter Password"
+            required
+          />
+          <input type="checkbox" class="check-box" /><span class="sform"
+            >I agree to the terms and conditions</span
+          >
+          <button type="submit" class="submit-btn">Register</button>
+        </form>
+      </div>
+    </div>
+    <script src="signup.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
-
-    <script>
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyAwG7RePlLNiGGfs61BttyXserKakBlq74",
-          authDomain: "pfd-asg-1.firebaseapp.com",
-          databaseURL: "https://pfd-asg-1-default-rtdb.asia-southeast1.firebasedatabase.app",
-          projectId: "pfd-asg-1",
-          storageBucket: "pfd-asg-1.appspot.com",
-          messagingSenderId: "683817910117",
-          appId: "1:683817910117:web:6bc464138c242c9853eb8c",
-          measurementId: "G-PCCLL01552"
-        };
-      
-        // Initialize Firebase
-        const test = firebase.initializeApp(firebaseConfig);
-
-            
-        document.getElementById('signUp').addEventListener('click', signUpUser)
-
-        function signUpUser(){
-            let email = document.getElementById('email').value
-            let password = document.getElementById('password').value
-
-            firebase.auth().createUserWithEmailAndPassword(email, password).catch(e=>{
-                console.log(e)
-            })
-        }
-
-        firebase.auth().onAuthStateChanged(user=>{
-            if(user){
-                console.log(user)
-            }else{
-
-            }
-        })
-        
-      </script>
-</body>
+  </body>
 </html>
