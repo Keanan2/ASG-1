@@ -67,7 +67,9 @@
       function AddAllProducts(){
           let i = 0;
           ArrayOfProducts.forEach(prod=> {
-            AddAProduct(prod,i++);
+            if (prod.LinksOfImagesArray) {
+              AddAProduct(prod, i++);
+            }
           });
       }
 
