@@ -22,7 +22,7 @@
 
 </header>
 <body>
-    <form class="my-form" action="https://formsubmit.co/justinchenjunrui@gmail.com" method="POST">
+    <form id="contactForm" class="my-form" action="https://formsubmit.co/justinchenjunrui@gmail.com" method="POST">
         <div class="container">
           <h1>Want to purchase an item or have a question for us?</h1>
           <div class="radiocontainer">
@@ -35,16 +35,16 @@
           <ul>
             <li>
               <div class="grid grid-1">
-                <input type="text" name="Name" placeholder="Full Name" required>  
+                <input type="text" name="Name" id="name" placeholder="Full Name" required>  
               </div>
             </li>
             <li>
               <div class="grid grid-1">
-                <input type="email" name="Email"placeholder="School Email" required>  
+                <input type="email" name="Email" id="email" placeholder="School Email" required>  
               </div>
             </li>    
             <li>
-              <input type="text" name="Message" placeholder="Message"></textarea>
+              <input type="text" name="Message" id="message" placeholder="Message"></textarea>
             </li>   
             <li>
               <input type="checkbox" id="terms">
@@ -87,7 +87,8 @@
           </ul>
         </div>
       </form>
-    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase-database.js"></script>
     <script src="contactjs.js"></script>
     <script src="contactjs2.js"></script>
     </body>
