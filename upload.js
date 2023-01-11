@@ -21,7 +21,7 @@ ScrollReveal().reveal(".media-icons i", {
   origin: "bottom",
   interval: 200,
 });
-ScrollReveal().reveal(".sec-02, .container accordion", {
+ScrollReveal().reveal(".sec-02, .container accordion, #navbar", {
   delay: 500,
   origin: "top",
 });

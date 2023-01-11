@@ -90,10 +90,19 @@
     top: 0;
     width: 100%;
   }
+  .headingcontainer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+  }
   #productsDiv{
     display: flex;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    margin-left: 100px;
+    position: relative;
   }
 
   .productcard{
