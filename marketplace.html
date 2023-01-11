@@ -6,16 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="normalize.css" rel="stylesheet" type="text/css"> <!--Normalize CSS-->
     <link href="marketplace.css" rel="stylesheet" type="text/css" />
+    <script src="https://unpkg.com/scrollreveal"></script>
     <title>Items graciously donated by Ngee Ann ICT students </title>
     
 </head>
 <header>
   <!-- navbar -->
-  <h2>nge<span>e</span>-waste.</h2>
-  <a href = "ewaste.html" > What is E-waste? </a>
-  <a href = "upload.html" > Post It Here! </a>
-  <a href = "contactus.html" > Contact Us! </a>
-  <a href = "index.html"> Log Out</a>
+  <div id="navbar">
+    <div id="navbar-content">
+      <h2>nge<span>e</span>-waste.</h2>
+      <a href="upload.html"> What is E-waste? </a>
+      <a href="marketplace.html"> Post It Here! </a>
+      <a href="contactus.html"> Contact Us! </a>
+      <a href="index.html"> Log Out</a>
+    </div>
+    <div class="progress-container">
+      <div class="progress-bar" id="myBar"></div>
+    </div>
+  </div>
 </header>
 <body>
   <h1>Items up for grabs</h1>
@@ -97,5 +105,6 @@
       }
       
     </script>
+    <script src="marketplace.js"></script>
 </body>
 </html>
