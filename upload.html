@@ -138,7 +138,14 @@
         <h3 class="section-title">Add Your Product Here!</h3>
         <div class="listingcontent">
           <label><b>Product Name :</b></label
-          ><input type="text" id="nameinp" /> <br /><br />
+          >
+          
+          <form autocomplete="off" action="/action_page.php">
+            <div class="autocomplete" style="width:100px;">
+              <input id="nameinp" type="text" name="myCountry" placeholder="Product Name">
+            </div>
+          </form>
+
           <label id="pdlab"><b>Product Description :</b></label>
           <textarea id="desarea"></textarea><br /><br />
           <div id="imagesDiv"></div>
