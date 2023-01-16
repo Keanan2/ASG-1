@@ -1,113 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="normalize.css" rel="stylesheet" type="text/css"> <!--Normalize CSS-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="normalize.css" rel="stylesheet" type="text/css" />
+    <!--Normalize CSS-->
     <link href="marketplace.css" rel="stylesheet" type="text/css" />
     <script src="https://unpkg.com/scrollreveal"></script>
-    <title>Items graciously donated by Ngee Ann ICT students </title>
-    
-</head>
-<header>
-  <!-- navbar -->
-  <div id="navbar">
-    <div id="navbar-content">
-      <h2>nge<span>e</span>-waste.</h2>
-      <a href="ewaste.html"> What is E-waste? </a>
-      <a href="upload.html"> Post It Here! </a>
-      <a href="contactus.html"> Contact Us! </a>
-      <a href="index.html"> Log Out</a>
+    <title>Items graciously donated by Ngee Ann ICT students</title>
+  </head>
+  <header>
+    <!-- navbar -->
+    <div id="navbar">
+      <div id="navbar-content">
+        <h2>nge<span>e</span>-waste.</h2>
+        <a href="ewaste.html"> What is E-waste? </a>
+        <a href="upload.html"> Post It Here! </a>
+        <a href="contactus.html"> Contact Us! </a>
+        <a href="index.html"> Log Out</a>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+      </div>
     </div>
-    <div class="progress-container">
-      <div class="progress-bar" id="myBar"></div>
+  </header>
+  <body>
+    <div class="headingcontainer">
+      <h1>Items Up For Grabs!</h1>
     </div>
-  </div>
-</header>
-<body>
-  <div class="headingcontainer">
-    <h1>Items Up For Grabs!</h1>
-  </div>
-    <div id="productsDiv" class="container">
-    </div>
-    <script type = "module">
-      function getShortTitle(){
-        if(title.length > 49) title = title.substring(0,47);
+    <div id="productsDiv" class="container"></div>
+    <script type="module">
+      function getShortTitle() {
+        if (title.length > 49) title = title.substring(0, 47);
         else return title;
-        return title + "..."
+        return title + "...";
       }
 
       //--------------------IMPORTS + CONFIGRATION----------------------
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-      import { getDatabase, ref, set, child, get } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
-      import { getStorage, ref as sRef, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js";
+      import {
+        getDatabase,
+        ref,
+        set,
+        child,
+        get,
+      } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+      import {
+        getStorage,
+        ref as sRef,
+        uploadBytesResumable,
+        getDownloadURL,
+      } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js";
 
       const firebaseConfig = {
-      apiKey: "AIzaSyAwG7RePlLNiGGfs61BttyXserKakBlq74",
-      authDomain: "pfd-asg-1.firebaseapp.com",
-      databaseURL: "https://pfd-asg-1-default-rtdb.asia-southeast1.firebasedatabase.app",
-      projectId: "pfd-asg-1",
-      storageBucket: "pfd-asg-1.appspot.com",
-      messagingSenderId: "683817910117",
-      appId: "1:683817910117:web:6bc464138c242c9853eb8c",
-      measurementId: "G-PCCLL01552"
+        apiKey: "AIzaSyAwG7RePlLNiGGfs61BttyXserKakBlq74",
+        authDomain: "pfd-asg-1.firebaseapp.com",
+        databaseURL:
+          "https://pfd-asg-1-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "pfd-asg-1",
+        storageBucket: "pfd-asg-1.appspot.com",
+        messagingSenderId: "683817910117",
+        appId: "1:683817910117:web:6bc464138c242c9853eb8c",
+        measurementId: "G-PCCLL01552",
       };
 
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
-      
+
       const realdb = getDatabase();
 
-      var OuterDiv = document.getElementById('productsDiv');
+      var OuterDiv = document.getElementById("productsDiv");
       var ArrayOfProducts = [];
-      window.addEventListener('load', GetAllProducts);
+      window.addEventListener("load", GetAllProducts);
 
-      function GetAllProducts(){
-          const dbref = ref(realdb);
+      function GetAllProducts() {
+        const dbref = ref(realdb);
 
-          get(child(dbref,"TheProductRealdb"))
-          .then((snapshot) =>{
-              snapshot.forEach(prod => {
-                  ArrayOfProducts.push(prod.val());
-              });
-              AddAllProducts();
-          })
-      }
-
-      function AddAllProducts(){
-          let i = 0;
-          ArrayOfProducts.forEach(prod=> {
-            if (prod.LinksOfImagesArray) {
-              AddAProduct(prod, i++);
-            }
+        get(child(dbref, "TheProductRealdb")).then((snapshot) => {
+          snapshot.forEach((prod) => {
+            ArrayOfProducts.push(prod.val());
           });
+          AddAllProducts();
+        });
       }
 
-      function AddAProduct(product, index){
-          let html =
+      function AddAllProducts() {
+        let i = 0;
+        ArrayOfProducts.forEach((prod) => {
+          if (prod.LinksOfImagesArray) {
+            AddAProduct(prod, i++);
+          }
+        });
+      }
+
+      function AddAProduct(product, index) {
+        let html =
           `
-          <img src="`+ product.LinksOfImagesArray[0] +`" class="thumb mt-2" id="thumb`+ index +`">
-          <p class="title" id="title`+ index +`">` + product.ProductTitle +`</p>
+          <img src="` +
+          product.LinksOfImagesArray[0] +
+          `" class="thumb mt-2" id="thumb` +
+          index +
+          `">
+          <p class="title" id="title` +
+          index +
+          `">` +
+          product.ProductTitle +
+          `</p>
+          ` +
           `
-          +
-          `
-          <h5 class="description">`+product.Description+`</h5>
+          <h5 class="description">` +
+          product.Description +
+          `</h5>
           <button><a href="./contactus.html" class="btn" id="detbtn">Get it now!</button>
-          `
+          `;
 
-          let newProd = document.createElement('div');
-          newProd.classList.add('productcard');
-          newProd.innerHTML = html;
-          OuterDiv.append(newProd);
+        let newProd = document.createElement("div");
+        newProd.classList.add("productcard");
+        newProd.innerHTML = html;
+        OuterDiv.append(newProd);
       }
-      
-      function ProductDescription(array){
-          document.getElementById('description').innerHTML = product.Description;
-          return ul.outerHTML;
+
+      function ProductDescription(array) {
+        document.getElementById("description").innerHTML = product.Description;
+        return ul.outerHTML;
       }
-      
     </script>
     <script src="marketplace.js"></script>
-</body>
+  </body>
 </html>

@@ -52,24 +52,6 @@ function myFunction() {
   document.getElementById("myBar").style.width = scrolled + "%";
 }
 
-//Scroll behvaior for chatbot
-let chatboticon = document.getElementById("chatboticon");
-
-window.onscroll = function () {
-  scrollFunction();
-};
-
-function scrollFunction() {
-  if (
-    document.body.scrollTop > 20 ||
-    document.documentElement.scrollTop > 600
-  ) {
-    chatboticon.style.display = "block";
-  } else {
-    chatboticon.style.display = "none";
-  }
-}
-
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/

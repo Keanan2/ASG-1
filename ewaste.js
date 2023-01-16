@@ -7,7 +7,7 @@ ScrollReveal({
 });
 
 //target elements, and specify options to create reveal animations
-ScrollReveal().reveal(".main-title, .section-title", {
+ScrollReveal().reveal(".main-title, .section-title, .container h1", {
   delay: 500,
   origin: "left",
 });
