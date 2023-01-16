@@ -12,6 +12,8 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
     />
     <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="response.js" defer></script>
+    <script src="app.js" defer></script>
   </head>
   <header>
     <!-- navbar -->
@@ -83,66 +85,21 @@
         </div>
       </div>
     </section>
-    <!--FAQ Section-->
-    <div class="sec-02">
-      <div class="container">
-        <h2 class="section-title" style="color: white">
-          Frequently Asked Questions
-        </h2>
-        <button class="accordion">
-          Do we have to meet up with someone to donate?
-        </button>
-        <div class="panel">
-          <p>
-            No you do not. It is similar to the Carousell app, however, you do
-            need to drop your electronics into the box at the designated
-            location.
-          </p>
-        </div>
-
-        <button class="accordion">
-          Where can we donate our electronic products?
-        </button>
-        <div class="panel">
-          <p>
-            The box for donations will be placed inside the Capstone Project
-            room at Blk 31 Level 5. An E-vending machine is in talks to be
-            implemented, stay tune for that!
-          </p>
-        </div>
-
-        <button class="accordion">What do we get for donating?</button>
-        <div class="panel">
-          <p>
-            There will be a QR code for you to scan to attain CCA points for
-            participation. Donors will be automatically entered into a giveaway
-            where you stand a chance to win a gift card of your choice at the
-            end of the semester.
-          </p>
-        </div>
-
-        <button class="accordion">What happens to the electronics?</button>
-        <div class="panel">
-          <p>
-            Usable electronic that has not turned obsolete will be up for sale
-            at a very low price (ranging from $3-$8, depending on the type of
-            electronic taken). This sale will be held on Week 6 and Week 15 of
-            every semester, do check your email when the dates come closer!
-          </p>
-        </div>
-      </div>
-    </div>
     <!--Add Products section-->
     <section class="sec-02">
       <div class="container">
         <h3 class="section-title">Add Your Product Here!</h3>
         <div class="listingcontent">
-          <label><b>Product Name :</b></label
-          >
-          
+          <label><b>Product Name :</b></label>
+
           <form autocomplete="off" action="/action_page.php">
-            <div class="autocomplete" style="width:100px;">
-              <input id="nameinp" type="text" name="myCountry" placeholder="Product Name">
+            <div class="autocomplete" style="width: 100px">
+              <input
+                id="nameinp"
+                type="text"
+                name="myCountry"
+                placeholder="Product Name"
+              />
             </div>
           </form>
 
@@ -159,6 +116,52 @@
       </div>
     </section>
 
+    <!--FAQ Section-->
+    <div class="sec-02">
+      <div class="container">
+        <h2 class="section-title" style="color: white">
+          Frequently Asked Questions
+        </h2>
+        <div class="box">
+          <div class="card">
+            <h5>How bot works?</h5>
+            <div class="pra">
+              <i class="bi bi-robot" style="font-size: 3rem; color: black"></i>
+              <p>
+                Type in the respective alphabets and it will answer the
+                questions according to the alphabet! Start by saying Hi to the
+                bot and see what it says!
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <h5>What it answers?</h5>
+            <div class="praCB">
+              <p>A: Do we have to meet up with someone to donate?</p>
+              <p>B: Where can we donate our electronic products?</p>
+              <p>C: What do we get for donating?</p>
+              <p>D: What happens to the electronics?</p>
+              <p>E: Can we buy items that are donated?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chatbot collapse" id="chatboticon">
+      <div class="chat-header">
+        <div class="title">Let's Chat</div>
+      </div>
+      <div class="chat-body"></div>
+      <div class="chat-input">
+        <div class="input-sec">
+          <input type="text" id="txtInput" placeholder="Type here" />
+        </div>
+        <div class="send">
+          <img src="send.svg" alt="send" />
+        </div>
+      </div>
+    </div>
     <script type="module">
       // Variables and references
       var Files = [];
