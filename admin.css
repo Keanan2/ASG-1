@@ -150,7 +150,7 @@
   }
 
   #addprodbtn,
-  #selimgsbtn {
+  #selimgsbtn, #loadlab {
     float: right;
     margin-left: 10px;
   }
@@ -161,9 +161,6 @@
     justify-content: center;
   }
 
-  #loadlab {
-    width: 200px;
-  }
   /*End Adding listing css*/
 
   /*Display*/
