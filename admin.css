@@ -150,7 +150,8 @@
   }
 
   #addprodbtn,
-  #selimgsbtn, #loadlab {
+  #selimgsbtn,
+  #loadlab {
     float: right;
     margin-left: 10px;
   }
@@ -159,6 +160,10 @@
     display: flex;
     width: 740px;
     justify-content: center;
+  }
+
+  #uploadstat {
+    width: 100vw;
   }
 
   /*End Adding listing css*/

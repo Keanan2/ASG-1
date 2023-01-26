@@ -109,7 +109,8 @@
         </div>
 
         <div id="controldiv">
-          <label id="loadlab" hidden>Uploading 1 of 3</label>
+          <label id="uploadstat" hidden>Uploading Image</label>
+          <button id="loadlab" class="bn59">Clear Images</button>
           <button id="selimgsbtn" class="bn59">Select Images</button>
           <button id="addprodbtn" class="bn59">Add Product</button>
         </div>
@@ -206,6 +207,7 @@
       const selBtn = document.getElementById("selimgsbtn");
       const addBtn = document.getElementById("addprodbtn");
       const proglab = document.getElementById("loadlab");
+      const uploadstat = document.getElementById("uploadstat");
 
       const name = document.getElementById("nameinp");
       const description = document.getElementById("desarea");
@@ -250,12 +252,11 @@
           };
           FileReaders[i].readAsDataURL(Files[i]);
         }
-
-        let lab = document.getElementById("label");
-        lab.innerHTML = "";
-        lab.style = "cursor:pointer;display:block;color:navy; font-size:12px";
-        lab.addEventListener("click", ClearImages);
-        imgdiv.append(lab);
+        let upstat = document.getElementById("uploadstat");
+        upstat.innerHTML = "";
+        upstat.style =
+          "cursor:pointer;display:block;color:white; font-size:18px";
+        imgdiv.append(upstat);
       }
 
       function ClearImages() {
@@ -283,12 +284,14 @@
       function RestoreBack() {
         selBtn.disabled = false;
         addBtn.disabled = false;
+        proglab.disabled = false;
       }
 
       //------------------------ EVENTS ------------------------
 
       selBtn.addEventListener("click", OpenFileDialog);
       addBtn.addEventListener("click", UploadAllImages);
+      proglab.addEventListener("click", ClearImages);
 
       //------------------------UPLOAD IMAGE TO FIREBASE STORAGE--------------
 
@@ -324,7 +327,7 @@
         UploadTask.on(
           "state_changed",
           (snapshot) => {
-            proglab.innerHTML = GetImgUploadProgress();
+            uploadstat.innerHTML = GetImgUploadProgress();
           },
 
           (error) => {
@@ -335,7 +338,7 @@
             getDownloadURL(UploadTask.snapshot.ref).then((downloadURL) => {
               ImageLinksArray.push(downloadURL);
               if (IsAllImagesUploaded()) {
-                proglab.innerHTML = "All images successfully uploaded.";
+                uploadstat.innerHTML = "All images successfully uploaded.";
                 UploadAProduct();
               }
             });
