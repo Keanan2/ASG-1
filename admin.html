@@ -237,6 +237,7 @@
       const realdb = getDatabase();
 
       //----------------------UPLOAD A PRODUCT---------------------
+
       function UploadAProduct() {
         set(ref(realdb, "TheProductRealdb/" + getShortTitle()), {
           ProductTitle: name.value,
@@ -289,18 +290,39 @@
           <h5 class="description">` +
           product.Description +
           `</h5>
-          <button><a href="./contactus.html" class="btn" id="detbtn">Get it now!</button>
+          <button class="bn59" id="${
+            "delbtn" + product.ProductTitle + Date.now()
+          }" style="background-color: red">Delete</button>
           `;
 
         let newProd = document.createElement("div");
         newProd.classList.add("productcard");
         newProd.innerHTML = html;
         OuterDiv.append(newProd);
+
+        const delbtn = document.getElementById(
+          "delbtn" + product.ProductTitle + Date.now()
+        );
+        delbtn.addEventListener("click", DelAProduct);
+        delbtn.pdtTitle = product.ProductTitle;
       }
 
       function ProductDescription(array) {
         document.getElementById("description").innerHTML = product.Description;
         return ul.outerHTML;
+      }
+
+      function DelAProduct(evt) {
+        let pdtTitle = evt.currentTarget.pdtTitle;
+        set(
+          ref(
+            realdb,
+            "TheProductRealdb/" + pdtTitle.replace(/[^a-zA-Z0-9]/g, "") + "/"
+          ),
+          {}
+        ).then(() => {
+          location.reload();
+        });
       }
     </script>
     <script src="admin.js"></script>
