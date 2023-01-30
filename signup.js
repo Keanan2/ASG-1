@@ -46,19 +46,40 @@ registerSubmitBtn.addEventListener("click", function(e) {
   var email = registerEmail.value;
   var password = registerPassword.value;
 
-  // Create user with email and password
-  firebase
-    .auth()
-    .createUserWithEmailAndPassword(email, password)
-    .then(function() {
-      // User created, update profile with username
-      firebase.auth().currentUser.updateProfile({
-        displayName: username
-      });
-      alert("Registration successful!")
-      document.getElementById("register").reset(); // Remove all credentials in the form after successful register
-      // Redirect to another page or show success message
-      //window.location.href = "./signUp.html";
+  if (!/^[a-zA-Z\s]+$/.test(username)) {
+    alert("Display name can only contain letters. Please check your entry again.");
+    return;
+    
+  } else if (username.length > 35) {
+    alert("Display name cannot exceed 35 characters.");
+    return;
+  }
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(function(user) {
+      if (!email.endsWith("@connect.np.edu.sg")) {
+        firebase.auth().currentUser.delete()
+          .then(function() {
+            // Show error message for invalid email domain
+            alert("Invalid email domain! Please check your entry again.")
+          })
+          .catch(function(error) {
+            // Handle error
+            var errorMessage = error.message;
+            console.log('Login Error: ', error);
+            alert(errorMessage)
+          });
+      } else {
+        // User created, update profile with username
+        firebase.auth().currentUser.updateProfile({
+          displayName: username
+        });
+        // User account created successfully
+        alert("Registration successful!")
+        document.getElementById("register").reset(); // Remove all credentials in the form after successful register
+        // Redirect to another page
+        window.location.href = "/ASG-1/signUp.html";
+      }
     })
     .catch(function(error) {
       // Handle error
@@ -66,7 +87,7 @@ registerSubmitBtn.addEventListener("click", function(e) {
       console.log('Login Error: ', error);
       alert(errorMessage)
     });
-});
+  });
 
 document.getElementById("login-btn").addEventListener("click", function(event) {
   event.preventDefault();
@@ -88,51 +109,3 @@ document.getElementById("login-btn").addEventListener("click", function(event) {
       alert(errorMessage);
     });
 });
-
-/*
-document.getElementById("loginBtn").addEventListener("click", LoginUser);
-
-function LoginUser() {
-  let email = document.getElementById("login-email").value;
-  let password = document.getElementById("login-password").value;
-
-  firebase
-    .auth()
-    .signInWithEmailAndPassword(email, password)
-    .catch((e) => {
-      console.log(e);
-
-      var errorCode = error.code;
-      var errorMessage = error.message;
-
-      window.alert("Error : " + errorMessage);
-    });
-}
-
-function showUserDetails(user) {
-  document.getElementById("userDetails").innerHTML =
-    "<p>Logged in successfully with ${user.email}<p>";
-}
-
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    console.log(user);
-  }
-});
-
-firebase.auth().onAuthStateChanged(function (user) {
-  if (user) {
-    // User is signed in.
-    //window.location = "./ewaste.html";
-    console.log(user);
-  }
-});
-
-/*
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (!user) {
-                // User is signed in.
-                window.location = './index.html';
-            }
-        });
-        */
