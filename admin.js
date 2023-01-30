@@ -137,3 +137,50 @@ var countries = [
 
 /*initiate the autocomplete function on the "nameinp" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("nameinp"), countries);
+
+
+
+
+// ------------ FOR USER AUTHENTICATION------------
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfigs = {
+  apiKey: "AIzaSyAwG7RePlLNiGGfs61BttyXserKakBlq74",
+  authDomain: "pfd-asg-1.firebaseapp.com",
+  databaseURL:
+    "https://pfd-asg-1-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "pfd-asg-1",
+  storageBucket: "pfd-asg-1.appspot.com",
+  messagingSenderId: "683817910117",
+  appId: "1:683817910117:web:6bc464138c242c9853eb8c",
+  measurementId: "G-PCCLL01552",
+};
+
+// Initialize Firebase
+const test = firebase.initializeApp(firebaseConfigs);
+
+// USER AUTHENTICATION
+firebase.auth().onAuthStateChanged(function(user) {
+  var email = user.email;
+  if (email.endsWith("@admin.com")){ // Check if user logged in is admin
+    if(sessionStorage.getItem("loggedIn") === "true"){
+      var displayName = user.displayName
+      alert("Welcome back, Admin")
+      sessionStorage.removeItem("loggedIn") // Remove the welcome message after displaying
+  }
+  } else {
+    // Unauthorized access!!!
+    alert("Unauthorized access! Logging and forwarding your IP address to the FBI.")
+
+    firebase.auth().signOut().then(function() { // Auto sign user out
+      // Sign-out successful
+      console.log("User signed out successfully");
+    }).catch(function(error) {
+      // An error occurred while signing out
+      console.error(error);
+      window.location.href = "/ASG-1/signUp.html"
+    });
+
+    window.location.href = "/ASG-1/signUp.html";
+  }
+});

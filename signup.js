@@ -46,6 +46,7 @@ registerSubmitBtn.addEventListener("click", function(e) {
   var email = registerEmail.value;
   var password = registerPassword.value;
 
+  // Display name conditionals
   if (!/^[a-zA-Z\s]+$/.test(username)) {
     alert("Display name can only contain letters. Please check your entry again.");
     return;
@@ -98,10 +99,16 @@ document.getElementById("login-btn").addEventListener("click", function(event) {
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then(function(user) {
       console.log('Successful Login: ', user);
-      // success, the user is logged in
-      sessionStorage.setItem("loggedIn", "true"); // Creates a session storage for login to display welcome message once
-      alert("Login successful!") // Popup message 
-      window.location.href = "/ASG-1/ewaste.html"; // Redirect user to this location after successful login
+      if (!email.endsWith("@connect.np.edu.sg")){ // Check if user logged in is admin
+        alert("Login successful!") // Popup message 
+        window.location.href = "/ASG-1/admin.html"; // Redirect user to this location after successful login
+      }
+      else{
+        // success, the user is logged in
+        sessionStorage.setItem("loggedIn", "true"); // Creates a session storage for login to display welcome message once
+        alert("Login successful!") // Popup message 
+        window.location.href = "/ASG-1/ewaste.html"; // Redirect user to this location after successful login
+      }
     })  
     .catch(function(error) {
       var errorMessage = error.message;
