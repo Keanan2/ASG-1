@@ -11,7 +11,7 @@
     scroll-behavior: smooth;
   }
   body {
-    background: #111222;
+    background: #f2f2f2;
   }
   #navbar {
     z-index: 2;
@@ -88,7 +88,7 @@
     justify-content: center;
     align-items: center;
     padding: 80px 100px;
-    color: #fff;
+    color: #111222;
   }
 
   .container {
@@ -116,7 +116,7 @@
     padding: 20px 0px;
   }
   .title h2 {
-    color: white;
+    color: #111222;
     font-size: 75px;
     width: 1130px;
     margin: 30px auto;
@@ -356,15 +356,15 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: black;
+    background: gainsboro;
     width: 100%;
     margin-top: 50px;
     padding: 3rem 2rem;
-    color: #fff;
+    color: #111222;
   }
 
   footer a {
-    color: #fff;
+    color: #111222;
   }
 
   .footer-container {
@@ -377,7 +377,7 @@
   .footer-container .about h2 {
     font-size: 3em;
     font-weight: 600;
-    background: linear-gradient(to top, transparent 0%, #fff 50%);
+    background: linear-gradient(to top, transparent 0%, #111222 50%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     opacity: 0.8;
