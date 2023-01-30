@@ -51,7 +51,17 @@
       </div>
     </section>
 
-    <!--Listings-->
+    <!--=======Search filter=======-->
+    <div class="container-fluid">
+      <div class="containersf">
+        <div class="search">
+          <h1>All Products</h1>
+          <input type="text" name="" id="find" placeholder="search here...." />
+        </div>
+      </div>
+    </div>
+
+    <!--=======product display=======-->
     <div id="productsDiv" class="container"></div>
 
     <script type="module">
@@ -297,6 +307,7 @@
 
         let newProd = document.createElement("div");
         newProd.classList.add("productcard");
+        newProd.id = product.ProductTitle.toUpperCase();
         newProd.innerHTML = html;
         OuterDiv.append(newProd);
 
@@ -311,6 +322,21 @@
         document.getElementById("description").innerHTML = product.Description;
         return ul.outerHTML;
       }
+
+      let findBox = document.getElementById("find");
+      findBox.addEventListener("keyup", function (evt) {
+        let filter = this.value.toUpperCase();
+        let l = document.getElementsByClassName("productcard");
+        for (var i = 0; i < l.length; i++) {
+          let a = l[i];
+          let value = a.id;
+          if (value.toUpperCase().indexOf(filter) > -1) {
+            l[i].style.display = "";
+          } else {
+            l[i].style.display = "none";
+          }
+        }
+      });
 
       function DelAProduct(evt) {
         let pdtTitle = evt.currentTarget.pdtTitle;

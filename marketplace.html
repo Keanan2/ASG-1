@@ -31,9 +31,17 @@
     </div>
   </header>
   <body>
-    <div class="headingcontainer">
-      <h1>Items Up For Grabs!</h1>
+    <!--=======Search filter=======-->
+    <div class="container-fluid">
+      <div class="container">
+        <div class="search">
+          <h1>All Products</h1>
+          <input type="text" name="" id="find" placeholder="search here...." />
+        </div>
+      </div>
     </div>
+
+    <!--=======product display=======-->
     <div id="productsDiv" class="container"></div>
 
     <!--=======Footer=======-->
@@ -50,9 +58,9 @@
             <li><a href="ewaste.html"> What is E-waste? </a></li>
             <li><a href="marketplace.html"> Post It Here! </a></li>
             <li><a href="contactus.html"> Contact Us! </a></li>
-            <li><a href="feedback.html"> Give Us Feedback! </a></li>
             <li><a href="signUp.html"> Log Out</a></li>
           </ul>
+          <a href="feedback.html">Feedback! </a>
         </div>
         <div class="hr"></div>
         <div class="follow group">
@@ -158,6 +166,7 @@
 
         let newProd = document.createElement("div");
         newProd.classList.add("productcard");
+        newProd.id = product.ProductTitle.toUpperCase();
         newProd.innerHTML = html;
         OuterDiv.append(newProd);
       }
@@ -166,6 +175,21 @@
         document.getElementById("description").innerHTML = product.Description;
         return ul.outerHTML;
       }
+
+      let findBox = document.getElementById("find");
+      findBox.addEventListener("keyup", function (evt) {
+        let filter = this.value.toUpperCase();
+        let l = document.getElementsByClassName("productcard");
+        for (var i = 0; i < l.length; i++) {
+          let a = l[i];
+          let value = a.id;
+          if (value.toUpperCase().indexOf(filter) > -1) {
+            l[i].style.display = "";
+          } else {
+            l[i].style.display = "none";
+          }
+        }
+      });
     </script>
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
