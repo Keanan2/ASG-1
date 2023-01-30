@@ -138,9 +138,6 @@ var countries = [
 /*initiate the autocomplete function on the "nameinp" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("nameinp"), countries);
 
-
-
-
 // ------------ FOR USER AUTHENTICATION------------
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -160,27 +157,35 @@ const firebaseConfigs = {
 const test = firebase.initializeApp(firebaseConfigs);
 
 // USER AUTHENTICATION
-firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function (user) {
   var email = user.email;
-  if (email.endsWith("@admin.com")){ // Check if user logged in is admin
-    if(sessionStorage.getItem("loggedIn") === "true"){
-      var displayName = user.displayName
-      alert("Welcome back, Admin")
-      sessionStorage.removeItem("loggedIn") // Remove the welcome message after displaying
-  }
+  if (email.endsWith("@admin.com")) {
+    // Check if user logged in is admin
+    if (sessionStorage.getItem("loggedIn") === "true") {
+      var displayName = user.displayName;
+      alert("Welcome back, Admin");
+      sessionStorage.removeItem("loggedIn"); // Remove the welcome message after displaying
+    }
   } else {
     // Unauthorized access!!!
-    alert("Unauthorized access! Logging and forwarding your IP address to the FBI.")
+    alert(
+      "Unauthorized access! Logging and forwarding your IP address to the FBI."
+    );
 
-    firebase.auth().signOut().then(function() { // Auto sign user out
-      // Sign-out successful
-      console.log("User signed out successfully");
-    }).catch(function(error) {
-      // An error occurred while signing out
-      console.error(error);
-      window.location.href = "/ASG-1/signUp.html"
-    });
+    firebase
+      .auth()
+      .signOut()
+      .then(function () {
+        // Auto sign user out
+        // Sign-out successful
+        console.log("User signed out successfully");
+      })
+      .catch(function (error) {
+        // An error occurred while signing out
+        console.error(error);
+        window.location.href = "signUp.html";
+      });
 
-    window.location.href = "/ASG-1/signUp.html";
+    window.location.href = "signUp.html";
   }
 });

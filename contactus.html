@@ -185,21 +185,27 @@
       const signOutLink = document.querySelector("#signOut");
 
       // Add click event listener to sign out link
-      signOutLink.addEventListener("click", function(event) {
+      signOutLink.addEventListener("click", function (event) {
         // Prevent default link behavior
         event.preventDefault();
 
         // Sign out of Firebase authentication
-        firebase.auth().signOut().then(function() {
-          // Sign-out successful
-          console.log("User signed out successfully");
-          alert("You have successfully signed out.")
-        }).catch(function(error) {
-          // An error occurred while signing out
-          console.error(error);
-          alert("There is an unexpected error signing you out. Redirecting you back to login page.")
-          window.location.href = "/ASG-1/signUp.html";
-        });
+        firebase
+          .auth()
+          .signOut()
+          .then(function () {
+            // Sign-out successful
+            console.log("User signed out successfully");
+            alert("You have successfully signed out.");
+          })
+          .catch(function (error) {
+            // An error occurred while signing out
+            console.error(error);
+            alert(
+              "There is an unexpected error signing you out. Redirecting you back to login page."
+            );
+            window.location.href = "signUp.html";
+          });
       });
     </script>
   </body>

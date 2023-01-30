@@ -172,11 +172,6 @@ var countries = [
 /*initiate the autocomplete function on the "nameinp" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("nameinp"), countries);
 
-
-
-
-
-
 // ------------ FOR USER AUTHENTICATION------------
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -196,14 +191,14 @@ const firebaseConfigs = {
 const test = firebase.initializeApp(firebaseConfigs);
 
 // USER AUTHENTICATION
-firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in.
     //var displayName = user.displayName
     //alert("Welcome back, " + displayName)
   } else {
     // No user is signed in. Redirect to login screen
-    alert("Please sign in to view the contents.")
-    window.location.href = "/ASG-1/signUp.html";
+    alert("Please sign in to view the contents.");
+    window.location.href = "signUp.html";
   }
 });

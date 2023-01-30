@@ -71,9 +71,6 @@ img.addEventListener("click", (e) => {
   zoom.style.display = "flex";
 });
 
-
-
-
 // ------------ FOR USER AUTHENTICATION------------
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -93,17 +90,17 @@ const firebaseConfigs = {
 const test = firebase.initializeApp(firebaseConfigs);
 
 // USER AUTHENTICATION
-firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in.
-    if(sessionStorage.getItem("loggedIn") === "true"){
-      var displayName = user.displayName
-      alert("Welcome back, " + displayName + " senpai")
-      sessionStorage.removeItem("loggedIn") // Remove the welcome message after displaying 
+    if (sessionStorage.getItem("loggedIn") === "true") {
+      var displayName = user.displayName;
+      alert("Welcome back, " + displayName + " senpai");
+      sessionStorage.removeItem("loggedIn"); // Remove the welcome message after displaying
     }
   } else {
     // No user is signed in. Redirect to login screen
-    alert("Please sign in to view the contents.")
-    window.location.href = "/ASG-1/signUp.html";
+    alert("Please sign in to view the contents.");
+    window.location.href = "signUp.html";
   }
 });

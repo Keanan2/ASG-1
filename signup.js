@@ -38,7 +38,7 @@ var registerPassword = document.getElementById("register-password");
 var registerSubmitBtn = document.getElementById("register-submit-btn");
 
 // Add event listener to register submit button
-registerSubmitBtn.addEventListener("click", function(e) {
+registerSubmitBtn.addEventListener("click", function (e) {
   e.preventDefault();
 
   // Get input values
@@ -48,72 +48,81 @@ registerSubmitBtn.addEventListener("click", function(e) {
 
   // Display name conditionals
   if (!/^[a-zA-Z\s]+$/.test(username)) {
-    alert("Display name can only contain letters. Please check your entry again.");
+    alert(
+      "Display name can only contain letters. Please check your entry again."
+    );
     return;
-    
   } else if (username.length > 35) {
     alert("Display name cannot exceed 35 characters.");
     return;
   }
 
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(function(user) {
+  firebase
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
+    .then(function (user) {
       if (!email.endsWith("@connect.np.edu.sg")) {
-        firebase.auth().currentUser.delete()
-          .then(function() {
+        firebase
+          .auth()
+          .currentUser.delete()
+          .then(function () {
             // Show error message for invalid email domain
-            alert("Invalid email domain! Please check your entry again.")
+            alert("Invalid email domain! Please check your entry again.");
           })
-          .catch(function(error) {
+          .catch(function (error) {
             // Handle error
             var errorMessage = error.message;
-            console.log('Login Error: ', error);
-            alert(errorMessage)
+            console.log("Login Error: ", error);
+            alert(errorMessage);
           });
       } else {
         // User created, update profile with username
         firebase.auth().currentUser.updateProfile({
-          displayName: username
+          displayName: username,
         });
         // User account created successfully
-        alert("Registration successful!")
+        alert("Registration successful!");
         document.getElementById("register").reset(); // Remove all credentials in the form after successful register
         // Redirect to another page
-        window.location.href = "/ASG-1/signUp.html";
+        window.location.href = "signUp.html";
       }
     })
-    .catch(function(error) {
+    .catch(function (error) {
       // Handle error
       var errorMessage = error.message;
-      console.log('Login Error: ', error);
-      alert(errorMessage)
-    });
-  });
-
-document.getElementById("login-btn").addEventListener("click", function(event) {
-  event.preventDefault();
-  
-  var email = document.getElementById("login-email").value;
-  var password = document.getElementById("login-password").value;
-
-  firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(function(user) {
-      console.log('Successful Login: ', user);
-      if (!email.endsWith("@connect.np.edu.sg")){ // Check if user logged in is admin
-        alert("Login successful!") // Popup message 
-        window.location.href = "/ASG-1/admin.html"; // Redirect user to this location after successful login
-      }
-      else{
-        // success, the user is logged in
-        sessionStorage.setItem("loggedIn", "true"); // Creates a session storage for login to display welcome message once
-        alert("Login successful!") // Popup message 
-        window.location.href = "/ASG-1/ewaste.html"; // Redirect user to this location after successful login
-      }
-    })  
-    .catch(function(error) {
-      var errorMessage = error.message;
-      console.log('Login Error: ', error);
-      // handle error
+      console.log("Login Error: ", error);
       alert(errorMessage);
     });
 });
+
+document
+  .getElementById("login-btn")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+
+    var email = document.getElementById("login-email").value;
+    var password = document.getElementById("login-password").value;
+
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(function (user) {
+        console.log("Successful Login: ", user);
+        if (!email.endsWith("@connect.np.edu.sg")) {
+          // Check if user logged in is admin
+          alert("Login successful!"); // Popup message
+          window.location.href = "admin.html"; // Redirect user to this location after successful login
+        } else {
+          // success, the user is logged in
+          sessionStorage.setItem("loggedIn", "true"); // Creates a session storage for login to display welcome message once
+          alert("Login successful!"); // Popup message
+          window.location.href = "ewaste.html"; // Redirect user to this location after successful login
+        }
+      })
+      .catch(function (error) {
+        var errorMessage = error.message;
+        console.log("Login Error: ", error);
+        // handle error
+        alert(errorMessage);
+      });
+  });
