@@ -74,7 +74,7 @@ img.addEventListener("click", (e) => {
 
 
 
-// ------------ FOR SIGNING OUT ------------
+// ------------ FOR USER AUTHENTICATION------------
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfigs = {
@@ -92,23 +92,18 @@ const firebaseConfigs = {
 // Initialize Firebase
 const test = firebase.initializeApp(firebaseConfigs);
 
-// Get the sign out link
-const signOutLink = document.querySelector("#signOut");
-
-// Add click event listener to sign out link
-signOutLink.addEventListener("click", function(event) {
-  // Prevent default link behavior
-  event.preventDefault();
-
-  // Sign out of Firebase authentication
-  firebase.auth().signOut().then(function() {
-    // Sign-out successful
-    console.log("User signed out successfully");
-
-    // Redirect user to a html after successfully signed out
-    window.location = "./signUp.html";
-  }).catch(function(error) {
-    // An error occurred while signing out
-    console.error(error);
-  });
+// USER AUTHENTICATION
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    if(sessionStorage.getItem("loggedIn") === "true"){
+      var displayName = user.displayName
+      alert("Welcome back, " + displayName + " senpai")
+      sessionStorage.removeItem("loggedIn") // Remove the welcome message after displaying 
+    }
+  } else {
+    // No user is signed in. Redirect to login screen
+    alert("Please sign in to view the contents.")
+    window.location.href = "/ASG-1/signUp.html";
+  }
 });

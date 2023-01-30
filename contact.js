@@ -66,3 +66,17 @@ checkbox.addEventListener("change", function() {
     checked ? (btn.disabled = false) : (btn.disabled = true);
   }
 });
+
+
+// USER AUTHENTICATION
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    //var displayName = user.displayName
+    //alert("Welcome back, " + displayName)
+  } else {
+    // No user is signed in. Redirect to login screen
+    alert("Please sign in to view the contents.")
+    window.location.href = "/ASG-1/signUp.html";
+  }
+});

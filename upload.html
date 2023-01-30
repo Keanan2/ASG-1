@@ -23,7 +23,7 @@
         <a href="ewaste.html"> What is E-waste? </a>
         <a href="marketplace.html"> Marketplace </a>
         <a href="contactus.html"> Contact Us! </a>
-        <a href="index.html"> Log Out</a>
+        <a href="#" id="signOut"> Log Out</a>
       </div>
       <div class="progress-container">
         <div class="progress-bar" id="myBar"></div>
@@ -177,7 +177,7 @@
             <li><a href="ewaste.html"> What is E-waste? </a></li>
             <li><a href="marketplace.html"> Marketplace </a></li>
             <li><a href="contactus.html"> Contact Us! </a></li>
-            <li><a href="index.html"> Log Out</a></li>
+            <li><a href="#" id="signOut"> Log Out</a></li>
           </ul>
         </div>
         <div class="hr"></div>
@@ -391,6 +391,30 @@
         RestoreBack();
       }
     </script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
     <script src="upload.js"></script>
+    <script>
+      // FOR SIGNING OUT
+      const signOutLink = document.querySelector("#signOut");
+
+      // Add click event listener to sign out link
+      signOutLink.addEventListener("click", function(event) {
+        // Prevent default link behavior
+        event.preventDefault();
+
+        // Sign out of Firebase authentication
+        firebase.auth().signOut().then(function() {
+          // Sign-out successful
+          console.log("User signed out successfully");
+          alert("You have successfully signed out.")
+        }).catch(function(error) {
+          // An error occurred while signing out
+          console.error(error);
+          alert("There is an unexpected error signing you out. Redirecting you back to login page.")
+          window.location.href("/ASG-1/signUp.html")
+        });
+      });
+    </script>
   </body>
 </html>

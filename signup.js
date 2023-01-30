@@ -99,6 +99,7 @@ document.getElementById("login-btn").addEventListener("click", function(event) {
     .then(function(user) {
       console.log('Successful Login: ', user);
       // success, the user is logged in
+      sessionStorage.setItem("loggedIn", "true"); // Creates a session storage for login to display welcome message once
       alert("Login successful!") // Popup message 
       window.location.href = "/ASG-1/ewaste.html"; // Redirect user to this location after successful login
     })  
