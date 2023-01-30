@@ -1,41 +1,41 @@
 @font-face {
     font-family: 'colfax-light';
-    src: url("../fonts/colfax-light.woff") format("woff"), url("../fonts/colfax-light.woff2") format("woff2");
+    src: url("fonts/colfax-light.woff") format("woff"), url("fonts/colfax-light.woff2") format("woff2");
     font-weight: normal;
     font-style: normal
 }
 
 @font-face {
     font-family: 'colfax-medium';
-    src: url("../fonts/colfax-medium.woff") format("woff"), url("../fonts/colfax-medium.woff2") format("woff2");
+    src: url("fonts/colfax-medium.woff") format("woff"), url("fonts/colfax-medium.woff2") format("woff2");
     font-weight: normal;
     font-style: normal
 }
 
 @font-face {
     font-family: 'colfax-bold';
-    src: url("../fonts/colfax-bold.woff") format("woff"), url("../fonts/colfax-bold.woff2") format("woff2");
+    src: url("fonts/colfax-bold.woff") format("woff"), url("fonts/colfax-bold.woff2") format("woff2");
     font-weight: normal;
     font-style: normal
 }
 
 @font-face {
     font-family: 'colfax-light';
-    src: url("../fonts/colfax-light.woff") format("woff"), url("../fonts/colfax-light.woff2") format("woff2");
+    src: url("fonts/colfax-light.woff") format("woff"), url("fonts/colfax-light.woff2") format("woff2");
     font-weight: normal;
     font-style: normal
 }
 
 @font-face {
     font-family: 'colfax-medium';
-    src: url("../fonts/colfax-medium.woff") format("woff"), url("../fonts/colfax-medium.woff2") format("woff2");
+    src: url("fonts/colfax-medium.woff") format("woff"), url("fonts/colfax-medium.woff2") format("woff2");
     font-weight: normal;
     font-style: normal
 }
 
 @font-face {
     font-family: 'colfax-bold';
-    src: url("../fonts/colfax-bold.woff") format("woff"), url("../fonts/colfax-bold.woff2") format("woff2");
+    src: url("fonts/colfax-bold.woff") format("woff"), url("fonts/colfax-bold.woff2") format("woff2");
     font-weight: normal;
     font-style: normal
 }
@@ -200,21 +200,21 @@ input:-webkit-autofill {
 
 @font-face {
     font-family: 'colfax-light';
-    src: url("../fonts/colfax-light.woff") format("woff"), url("../fonts/colfax-light.woff2") format("woff2");
+    src: url("fonts/colfax-light.woff") format("woff"), url("fonts/colfax-light.woff2") format("woff2");
     font-weight: normal;
     font-style: normal
 }
 
 @font-face {
     font-family: 'colfax-medium';
-    src: url("../fonts/colfax-medium.woff") format("woff"), url("../fonts/colfax-medium.woff2") format("woff2");
+    src: url("fonts/colfax-medium.woff") format("woff"), url("fonts/colfax-medium.woff2") format("woff2");
     font-weight: normal;
     font-style: normal
 }
 
 @font-face {
     font-family: 'colfax-bold';
-    src: url("../fonts/colfax-bold.woff") format("woff"), url("../fonts/colfax-bold.woff2") format("woff2");
+    src: url("fonts/colfax-bold.woff") format("woff"), url("fonts/colfax-bold.woff2") format("woff2");
     font-weight: normal;
     font-style: normal
 }
@@ -390,21 +390,21 @@ input:-webkit-autofill {
 
 @font-face {
     font-family: 'colfax-light';
-    src: url("../fonts/colfax-light.woff") format("woff"), url("../fonts/colfax-light.woff2") format("woff2");
+    src: url("fonts/colfax-light.woff") format("woff"), url("fonts/colfax-light.woff2") format("woff2");
     font-weight: normal;
     font-style: normal
 }
 
 @font-face {
     font-family: 'colfax-medium';
-    src: url("../fonts/colfax-medium.woff") format("woff"), url("../fonts/colfax-medium.woff2") format("woff2");
+    src: url("fonts/colfax-medium.woff") format("woff"), url("fonts/colfax-medium.woff2") format("woff2");
     font-weight: normal;
     font-style: normal
 }
 
 @font-face {
     font-family: 'colfax-bold';
-    src: url("../fonts/colfax-bold.woff") format("woff"), url("../fonts/colfax-bold.woff2") format("woff2");
+    src: url("fonts/colfax-bold.woff") format("woff"), url("fonts/colfax-bold.woff2") format("woff2");
     font-weight: normal;
     font-style: normal
 }
@@ -1569,21 +1569,21 @@ form .button {
 
 @font-face {
     font-family: 'colfax-light';
-    src: url("../fonts/colfax-light.woff") format("woff"), url("../fonts/colfax-light.woff2") format("woff2");
+    src: url("fonts/colfax-light.woff") format("woff"), url("fonts/colfax-light.woff2") format("woff2");
     font-weight: normal;
     font-style: normal
 }
 
 @font-face {
     font-family: 'colfax-medium';
-    src: url("../fonts/colfax-medium.woff") format("woff"), url("../fonts/colfax-medium.woff2") format("woff2");
+    src: url("fonts/colfax-medium.woff") format("woff"), url("fonts/colfax-medium.woff2") format("woff2");
     font-weight: normal;
     font-style: normal
 }
 
 @font-face {
     font-family: 'colfax-bold';
-    src: url("../fonts/colfax-bold.woff") format("woff"), url("../fonts/colfax-bold.woff2") format("woff2");
+    src: url("fonts/colfax-bold.woff") format("woff"), url("fonts/colfax-bold.woff2") format("woff2");
     font-weight: normal;
     font-style: normal
 }
@@ -1904,12 +1904,11 @@ a:hover {
   }
   
   .front {
-    background: url('../images/logodo.png') no-repeat center;
+    background: url('images/logodo.png') no-repeat center;
     z-index: 2; 
   }    
   
   .back {
-    background: url('../images/Doomout.png') no-repeat center; 
     -ms-transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
