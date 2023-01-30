@@ -70,3 +70,45 @@ img.addEventListener("click", (e) => {
   console.log(zoom);
   zoom.style.display = "flex";
 });
+
+
+
+
+// ------------ FOR SIGNING OUT ------------
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfigs = {
+  apiKey: "AIzaSyAwG7RePlLNiGGfs61BttyXserKakBlq74",
+  authDomain: "pfd-asg-1.firebaseapp.com",
+  databaseURL:
+    "https://pfd-asg-1-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "pfd-asg-1",
+  storageBucket: "pfd-asg-1.appspot.com",
+  messagingSenderId: "683817910117",
+  appId: "1:683817910117:web:6bc464138c242c9853eb8c",
+  measurementId: "G-PCCLL01552",
+};
+
+// Initialize Firebase
+const test = firebase.initializeApp(firebaseConfigs);
+
+// Get the sign out link
+const signOutLink = document.querySelector("#signOut");
+
+// Add click event listener to sign out link
+signOutLink.addEventListener("click", function(event) {
+  // Prevent default link behavior
+  event.preventDefault();
+
+  // Sign out of Firebase authentication
+  firebase.auth().signOut().then(function() {
+    // Sign-out successful
+    console.log("User signed out successfully");
+
+    // Redirect user to a html after successfully signed out
+    window.location = "./signUp.html";
+  }).catch(function(error) {
+    // An error occurred while signing out
+    console.error(error);
+  });
+});

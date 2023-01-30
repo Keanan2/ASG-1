@@ -16,7 +16,7 @@ function login() {
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+const firebaseConfigs = {
   apiKey: "AIzaSyAwG7RePlLNiGGfs61BttyXserKakBlq74",
   authDomain: "pfd-asg-1.firebaseapp.com",
   databaseURL:
@@ -29,37 +29,72 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase (SIGN UP)
-const test = firebase.initializeApp(firebaseConfig);
+const test = firebase.initializeApp(firebaseConfigs);
 
-document.getElementById("signUp").addEventListener("click", signUpUser);
+// Get form elements
+var registerUsername = document.getElementById("register-username");
+var registerEmail = document.getElementById("register-email");
+var registerPassword = document.getElementById("register-password");
+var registerSubmitBtn = document.getElementById("register-submit-btn");
 
-function signUpUser() {
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("password").value;
+// Add event listener to register submit button
+registerSubmitBtn.addEventListener("click", function(e) {
+  e.preventDefault();
 
+  // Get input values
+  var username = registerUsername.value;
+  var email = registerEmail.value;
+  var password = registerPassword.value;
+
+  // Create user with email and password
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
-    .catch((e) => {
-      console.log(e);
+    .then(function() {
+      // User created, update profile with username
+      firebase.auth().currentUser.updateProfile({
+        displayName: username
+      });
+      alert("Registration successful!")
+      document.getElementById("register").reset(); // Remove all credentials in the form after successful register
+      // Redirect to another page or show success message
+      //window.location.href = "./signUp.html";
+    })
+    .catch(function(error) {
+      // Handle error
+      var errorMessage = error.message;
+      console.log('Login Error: ', error);
+      alert(errorMessage)
     });
-}
-
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    console.log(user);
-  } else {
-  }
 });
 
-// Initialize Firebase (LOG IN)
-firebase.initializeApp(firebaseConfig);
+document.getElementById("login-btn").addEventListener("click", function(event) {
+  event.preventDefault();
+  
+  var email = document.getElementById("login-email").value;
+  var password = document.getElementById("login-password").value;
 
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(function(user) {
+      console.log('Successful Login: ', user);
+      // success, the user is logged in
+      alert("Login successful!") // Popup message 
+      window.location.href = "/ASG-1/ewaste.html"; // Redirect user to this location after successful login
+    })  
+    .catch(function(error) {
+      var errorMessage = error.message;
+      console.log('Login Error: ', error);
+      // handle error
+      alert(errorMessage);
+    });
+});
+
+/*
 document.getElementById("loginBtn").addEventListener("click", LoginUser);
 
 function LoginUser() {
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("password").value;
+  let email = document.getElementById("login-email").value;
+  let password = document.getElementById("login-password").value;
 
   firebase
     .auth()
@@ -88,7 +123,7 @@ firebase.auth().onAuthStateChanged((user) => {
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in.
-    window.location = "./ewaste.html";
+    //window.location = "./ewaste.html";
     console.log(user);
   }
 });

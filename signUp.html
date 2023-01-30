@@ -33,46 +33,51 @@
         <!--Login form-->
         <form id="login" class="input-group">
           <input
-            type="text"
+            type="email"
             class="input-field"
-            placeholder="User ID"
+            placeholder="Email"
             required
+            id="login-email"
           />
           <input
-            type="text"
+            type="password"
             class="input-field"
             placeholder="Enter Password"
             required
+            id="login-password"
           />
           <input type="checkbox" class="check-box" /><span class="sform"
             >Remember Password</span
           >
-          <button type="submit" class="submit-btn">Log In</button>
+          <button type="submit" class="submit-btn" id="login-btn">Log In</button>
         </form>
         <!--Register form-->
         <form id="register" class="input-group">
           <input
             type="text"
             class="input-field"
-            placeholder="User ID"
+            placeholder="Display Name"
             required
+            id="register-username"
           />
           <input
             type="email"
             class="input-field"
             placeholder="Student Email"
             required
+            id="register-email"
           />
           <input
-            type="text"
+            type="password"
             class="input-field"
             placeholder="Enter Password"
             required
+            id="register-password"
           />
           <input type="checkbox" class="check-box" /><span class="sform"
             >I agree to the terms and conditions</span
           >
-          <button type="submit" class="submit-btn">Register</button>
+          <button type="submit" class="submit-btn" id="register-submit-btn">Register</button>
         </form>
       </div>
     </div>
@@ -85,8 +90,8 @@
         </p>
       
     </footer>
-    <script src="signup.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+    <script src="signup.js"></script>
   </body>
 </html>
