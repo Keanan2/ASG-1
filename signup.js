@@ -97,7 +97,7 @@ registerSubmitBtn.addEventListener("click", function (e) {
         // User account created successfully
         Swal.fire({
           icon: "success",
-          text: "Registration Successfull!",
+          text: "Registration Successful!",
         });
         document.getElementById("register").reset(); // Remove all credentials in the form after successful register
         // Redirect to another page
@@ -133,7 +133,7 @@ document
           // Check if user logged in is admin
           Swal.fire({
             icon: "success",
-            text: "Login Successfull!",
+            text: "Login Successful!",
           }); // Popup message
           window.location.href = "admin.html"; // Redirect user to this location after successful login
         } else {
@@ -141,7 +141,7 @@ document
           sessionStorage.setItem("loggedIn", "true"); // Creates a session storage for login to display welcome message once
           Swal.fire({
             icon: "success",
-            text: "Login Successfull!",
+            text: "Login Successful!",
           }); // Popup message
           window.location.href = "ewaste.html"; // Redirect user to this location after successful login
         }
