@@ -95,7 +95,10 @@ firebase.auth().onAuthStateChanged(function (user) {
     // User is signed in.
     if (sessionStorage.getItem("loggedIn") === "true") {
       var displayName = user.displayName;
-      alert("Welcome back, " + displayName + " senpai");
+      Swal.fire({
+        icon: "success",
+        text: "Welcome back, " + displayName,
+      });
       sessionStorage.removeItem("loggedIn"); // Remove the welcome message after displaying
     }
   } else {
