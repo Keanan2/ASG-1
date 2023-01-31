@@ -14,7 +14,7 @@ var config = {
 firebase.initializeApp(config);
 
 // Reference messages collection
-var messagesRef = firebase.database().ref("messages");
+var messagesRef = firebase.database().ref("Contact Forms");
 
 //Listen for form submit
 document.getElementById("contactForm").addEventListener("submit", submitForm);

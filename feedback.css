@@ -1,21 +1,18 @@
-/* CSS for Star Rating and Feedback START*/
-@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-html {
-  scroll-behavior: smooth;
-}
+@import url("https://fonts.googleapis.com/css?family=Poppins: 200,300,400,500,600,700,800,900&display=swap");
+@media screen and (min-width: 1440px) {
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    outline: none;
+  }
+/* CSS for navbar START */
 body {
   background: #f2f3f5;
-  /* display: grid;
-  height: 100%;
-  place-items: center;
-  text-align: center;
-  background: #000; */
+}
+#navbar {
+  z-index: 2;
 }
 #navbar-content {
   display: flex;
@@ -64,221 +61,59 @@ body {
 #navbar-content a:hover:after {
   width: 100%;
 }
-/* The progress container (grey background) */
-.progress-container {
-  width: 100%;
-  height: 8px;
-  background: #ccc;
+/* CSS for navbar END */
+
+/* CSS for feedback form START*/
+.feedbackForm {
+  width: 500px;
+  margin: 50px auto;
+  background-color: #f5f5f5;
+  padding: 30px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: 'Fira Sans', sans-serif;
 }
 
-/* The progress bar (scroll indicator) */
-.progress-bar {
-  height: 8px;
-  background: #04aa6d;
-  width: 0%;
+.feedbackForm form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-/* The sticky class is added to the navbar with JS when it reaches its scroll position */
-.sticky {
-  position: fixed;
-  top: 0;
+
+.feedbackForm label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.feedbackForm input[type="text"],
+.feedbackForm input[type="email"],
+.feedbackForm textarea {
   width: 100%;
-}
-.container {
-  position: relative;
-  width: 400px;
-  background: #111;
-  padding: 20px 30px;
-  border: 1px solid #444;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
   border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-.container .post {
-  display: none;
-}
-.container .text {
-  font-size: 25px;
-  color: #666;
-  font-weight: 500;
-}
-.container .edit {
-  position: absolute;
-  right: 10px;
-  top: 5px;
   font-size: 16px;
-  color: #666;
-  font-weight: 500;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.feedbackForm button[type="submit"] {
+  background-color: #00bfff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
 }
-.container .edit:hover {
-  text-decoration: underline;
-}
-.container .star-widget input {
-  display: none;
-}
-.star-widget label {
-  font-size: 40px;
-  color: #444;
-  padding: 10px;
-  float: right;
-  transition: all 0.2s ease;
-}
-input:not(:checked) ~ label:hover,
-input:not(:checked) ~ label:hover ~ label {
-  color: #fd4;
-}
-input:checked ~ label {
-  color: #fd4;
-}
-input#rate-5:checked ~ label {
-  color: #fe7;
-  text-shadow: 0 0 20px #952;
-}
-#rate-1:checked ~ form header:before {
-  content: "I just hate it ";
-}
-#rate-2:checked ~ form header:before {
-  content: "I don't like it ";
-}
-#rate-3:checked ~ form header:before {
-  content: "It is awesome ";
-}
-#rate-4:checked ~ form header:before {
-  content: "I just like it ";
-}
-#rate-5:checked ~ form header:before {
-  content: "I just love it ";
-}
-.container form {
-  display: none;
-}
-input:checked ~ form {
-  display: block;
-}
-form header {
-  width: 100%;
-  font-size: 25px;
-  color: #fe7;
-  font-weight: 500;
-  margin: 5px 0 20px 0;
+
+.alert {
   text-align: center;
-  transition: all 0.2s ease;
-}
-form .textarea {
-  height: 100px;
-  width: 100%;
-  overflow: hidden;
-}
-form .textarea textarea {
-  height: 100%;
-  width: 100%;
-  outline: none;
-  color: #eee;
-  border: 1px solid #333;
-  background: #222;
   padding: 10px;
-  font-size: 17px;
-  resize: none;
+  background: #79c879;
+  color: #fff;
+  margin-bottom: 10px;
+  display: none;
 }
-.textarea textarea:focus {
-  border-color: #444;
-}
-form .btn {
-  height: 45px;
-  width: 100%;
-  margin: 15px 0;
-}
-form .btn button {
-  height: 100%;
-  width: 100%;
-  border: 1px solid #444;
-  outline: none;
-  background: #222;
-  color: #999;
-  font-size: 17px;
-  font-weight: 500;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-form .btn button:hover {
-  background: #1b1b1b;
-}
-/* CSS for Star Rating and Feedback END*/
-
-/*Footer*/
-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background: gainsboro;
-  width: 100%;
-  margin-top: 50px;
-  padding: 3rem 2rem;
-  color: #111222;
-}
-
-footer a {
-  color: #111222;
-}
-
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1150px;
-}
-
-.footer-container .about h2 {
-  font-size: 3em;
-  font-weight: 600;
-  background: linear-gradient(to top, transparent 0%, #111222 50%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  opacity: 0.8;
-}
-
-.footer-container .about p {
-  font-size: 18px;
-  font-weight: 300;
-  margin-bottom: 30px;
-}
-
-.footer-container .infofooter,
-.footer-container .follow {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.footer-container .infofooter h3,
-.footer-container .follow h3 {
-  font-size: 1.1em;
-  font-weight: 500;
-  margin-bottom: 30px;
-}
-
-.footer-container .infofooter ul,
-.footer-container .follow ul {
-  display: flex;
-  list-style-type: none;
-}
-
-.footer-container .infofooter a {
-  margin: 20px;
-  text-decoration: none;
-}
-
-.footer-container .follow a {
-  font-size: 1.5em;
-  margin: 20px;
-}
-
-.footer-copyright p {
-  font-size: 18px;
-  font-weight: 300;
-  margin-top: 50px;
+/* CSS for feedback form END*/
 }
