@@ -14,6 +14,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
   </head>
   <header>
@@ -305,14 +306,19 @@
           .then(function () {
             // Sign-out successful
             console.log("User signed out successfully");
-            alert("You have successfully signed out.");
+            Swal.fire({
+              icon: "success",
+              text: "You have successfully signed out",
+            });
           })
           .catch(function (error) {
             // An error occurred while signing out
             console.error(error);
-            alert(
-              "There is an unexpected error signing you out. Redirecting you back to login page."
-            );
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "There is an unexpected error signing you out. Redirecting you back to login page.",
+            });
             window.location.href = "signUp.html";
           });
       });

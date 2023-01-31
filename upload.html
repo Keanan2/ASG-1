@@ -11,6 +11,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
     />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="response.js" defer></script>
     <script src="app.js" defer></script>
@@ -257,7 +258,7 @@
         let upstat = document.getElementById("uploadstat");
         upstat.innerHTML = "";
         upstat.style =
-          "cursor:pointer;display:block;color:white; font-size:18px";
+          "cursor:pointer;display:block;color:#111222; font-size:18px";
         imgdiv.append(upstat);
       }
 
@@ -389,7 +390,10 @@
           LinksOfImagesArray: ImageLinksArray,
         });
 
-        alert("Upload successful!");
+        Swal.fire({
+          icon: "success",
+          text: "Upload Successful!",
+        });
         RestoreBack();
       }
     </script>
@@ -412,14 +416,19 @@
           .then(function () {
             // Sign-out successful
             console.log("User signed out successfully");
-            alert("You have successfully signed out.");
+            Swal.fire({
+              icon: "success",
+              text: "You have successfully signed out",
+            });
           })
           .catch(function (error) {
             // An error occurred while signing out
             console.error(error);
-            alert(
-              "There is an unexpected error signing you out. Redirecting you back to login page."
-            );
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "There is an unexpected error signing you out. Redirecting you back to login page.",
+            });
             window.location.href = "signUp.html";
           });
       });

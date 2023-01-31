@@ -162,7 +162,7 @@ firebase.auth().onAuthStateChanged(function (user) {
   if (email.endsWith("@admin.com")) {
     // Check if user logged in is admin
     if (sessionStorage.getItem("loggedIn") === "true") {
-      var displayName = user.displayName;
+      // var displayName = user.displayName;
       alert("Welcome back, Admin");
       sessionStorage.removeItem("loggedIn"); // Remove the welcome message after displaying
     }

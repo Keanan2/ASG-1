@@ -12,6 +12,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
     />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
@@ -198,14 +199,19 @@
           .then(function () {
             // Sign-out successful
             console.log("User signed out successfully");
-            alert("You have successfully signed out.");
+            Swal.fire({
+              icon: "success",
+              text: "You have successfully signed out",
+            });
           })
           .catch(function (error) {
             // An error occurred while signing out
             console.error(error);
-            alert(
-              "There is an unexpected error signing you out. Redirecting you back to login page."
-            );
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "There is an unexpected error signing you out. Redirecting you back to login page.",
+            });
             window.location.href = "signUp.html";
           });
       });
