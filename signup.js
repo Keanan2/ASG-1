@@ -48,12 +48,18 @@ registerSubmitBtn.addEventListener("click", function (e) {
 
   // Display name conditionals
   if (!/^[a-zA-Z\s]+$/.test(username)) {
-    alert(
-      "Display name can only contain letters. Please check your entry again."
-    );
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Display name can only contain letters. Please check your entry again.",
+    });
     return;
   } else if (username.length > 35) {
-    alert("Display name cannot exceed 35 characters.");
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Display name cannot exceed 35 characters.",
+    });
     return;
   }
 
@@ -67,13 +73,21 @@ registerSubmitBtn.addEventListener("click", function (e) {
           .currentUser.delete()
           .then(function () {
             // Show error message for invalid email domain
-            alert("Invalid email domain! Please check your entry again.");
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Invalid email domain! Please check your entry again.",
+            });
           })
           .catch(function (error) {
             // Handle error
             var errorMessage = error.message;
             console.log("Login Error: ", error);
-            alert(errorMessage);
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: errorMessage,
+            });
           });
       } else {
         // User created, update profile with username
@@ -81,7 +95,10 @@ registerSubmitBtn.addEventListener("click", function (e) {
           displayName: username,
         });
         // User account created successfully
-        alert("Registration successful!");
+        Swal.fire({
+          icon: "success",
+          text: "Registration Successfull!",
+        });
         document.getElementById("register").reset(); // Remove all credentials in the form after successful register
         // Redirect to another page
         window.location.href = "signUp.html";
@@ -91,7 +108,11 @@ registerSubmitBtn.addEventListener("click", function (e) {
       // Handle error
       var errorMessage = error.message;
       console.log("Login Error: ", error);
-      alert(errorMessage);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: errorMessage,
+      });
     });
 });
 
@@ -110,12 +131,18 @@ document
         console.log("Successful Login: ", user);
         if (!email.endsWith("@connect.np.edu.sg")) {
           // Check if user logged in is admin
-          alert("Login successful!"); // Popup message
+          Swal.fire({
+            icon: "success",
+            text: "Login Successfull!",
+          }); // Popup message
           window.location.href = "admin.html"; // Redirect user to this location after successful login
         } else {
           // success, the user is logged in
           sessionStorage.setItem("loggedIn", "true"); // Creates a session storage for login to display welcome message once
-          alert("Login successful!"); // Popup message
+          Swal.fire({
+            icon: "success",
+            text: "Login Successfull!",
+          }); // Popup message
           window.location.href = "ewaste.html"; // Redirect user to this location after successful login
         }
       })
@@ -123,6 +150,10 @@ document
         var errorMessage = error.message;
         console.log("Login Error: ", error);
         // handle error
-        alert(errorMessage);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: errorMessage,
+        });
       });
   });
