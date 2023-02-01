@@ -21,10 +21,18 @@ ScrollReveal().reveal("#navbar", {
   origin: "top",
 });
 
+//Profile toggle
+let subMenu = document.getElementById("subMenu");
+
+function toggleMenu() {
+  subMenu.classList.toggle("open-menu");
+}
+
 var config = {
   apiKey: "AIzaSyAwG7RePlLNiGGfs61BttyXserKakBlq74",
   authDomain: "pfd-asg-1.firebaseapp.com",
-  databaseURL: "https://pfd-asg-1-default-rtdb.asia-southeast1.firebasedatabase.app",
+  databaseURL:
+    "https://pfd-asg-1-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "pfd-asg-1",
   storageBucket: "pfd-asg-1.appspot.com",
   messagingSenderId: "683817910117",

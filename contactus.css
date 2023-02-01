@@ -10,9 +10,12 @@
 body {
   font: 16px/1.5 "Poppins", sans-serif;
   background: var(--bodyColor);
-  color: var(--white);
+  color: #111222;
 }
-header {
+#navbar {
+  z-index: 2;
+}
+#navbar-content {
   display: flex;
   width: 100%;
   height: 50px;
@@ -21,23 +24,23 @@ header {
   margin: auto;
   background-color: white;
 }
-header h2 {
+
+#navbar-content h2 {
   margin-right: 300px;
   -webkit-text-stroke: 0.5px white;
   -webkit-text-fill-color: black;
 }
-header span {
+#navbar-content span {
   -webkit-text-fill-color: #60c045;
 }
 
-header a {
+#navbar-content a {
   position: relative;
-  margin: 0 15px;
+  margin: 10px 15px;
   text-decoration: none;
   color: black;
 }
-header a:hover {
-  text-decoration: none;
+#navbar-content a:hover {
   color: linear-gradient(
     0deg,
     rgba(34, 193, 195, 1) 0%,
@@ -45,7 +48,7 @@ header a:hover {
   );
 }
 
-header a:after {
+#navbar-content a:after {
   content: "";
   position: absolute;
   background-color: #5f8575;
@@ -56,10 +59,96 @@ header a:after {
   transition: 0.3s;
 }
 
-header a:hover:after {
+#navbar-content a:hover:after {
+  width: 100%;
+}
+#navbar-content img {
+  width: 30px;
+  height: 30px;
+}
+#navBarimg {
+  margin-left: 25px;
+}
+
+/*Profile*/
+.sub-menu-wrap {
+  position: absolute;
+  top: 100%;
+  right: 1%;
+  width: 320px;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+.sub-menu-img {
+  margin-left: 5px;
+}
+
+.sub-menu-wrap.open-menu {
+  max-height: 400px;
+}
+.sub-menu {
+  background-color: #fff;
+  padding: 8px;
+  margin: 10px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.user-info h3 {
+  font-weight: 500;
+}
+
+.user-info img {
+  width: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.sub-menu hr {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+  margin: 15px 0 10px;
+}
+
+.sub-menu-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #525252;
+}
+
+.sub-menu-link p {
   width: 100%;
 }
 
+.sub-menu-link img {
+  background: #e5e5e5;
+  border-radius: 50%;
+  padding: 2px;
+  margin-right: 10px;
+}
+
+.sub-menu-link span {
+  font-size: 22px;
+  transition: transform 0.5s;
+}
+
+.sub-menu-link:hover span {
+  transform: translate(5px);
+}
+
+.sub-menu-link:hover p {
+  font-weight: 600;
+}
+/*End of Profile */
 /* RESET RULES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 :root {
@@ -67,7 +156,6 @@ header a:hover:after {
   --red: #e31b23;
   --bodyColor: #f2f2f2;
   --borderFormEls: hsl(0, 0%, 10%);
-  --bgFormEls: hsl(0, 0%, 14%);
   --bgFormElsFocus: hsl(0, 7%, 20%);
 }
 
@@ -114,6 +202,7 @@ ul {
 }
 
 .container {
+  z-index: -1;
   max-width: 800px;
   margin: 0 auto;
   padding: 0 1.5rem;
@@ -126,7 +215,6 @@ ul {
   padding: 15px 10px;
   margin-bottom: 20px;
   border: 1px solid var(--borderFormEls);
-  color: var(--white);
   background: var(--bgFormEls);
 }
 .radiocontainer input[type="radio"] {
@@ -153,7 +241,6 @@ ul {
   line-height: 1.5;
   padding: 15px 10px;
   border: 1px solid var(--borderFormEls);
-  color: var(--white);
   background: var(--bgFormEls);
   transition: background-color 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25),
     transform 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);

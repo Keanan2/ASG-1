@@ -37,7 +37,7 @@
 
   #navbar-content a {
     position: relative;
-    margin: 0 15px;
+    margin: 10px 15px;
     text-decoration: none;
     color: black;
   }
@@ -63,6 +63,93 @@
   #navbar-content a:hover:after {
     width: 100%;
   }
+  #navbar-content img {
+    width: 30px;
+    height: 30px;
+  }
+  #navBarimg {
+    margin-left: 25px;
+  }
+
+  /*Profile*/
+  .sub-menu-wrap {
+    position: absolute;
+    top: 100%;
+    right: 1%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+  }
+
+  .sub-menu-img {
+    margin-left: 5px;
+  }
+
+  .sub-menu-wrap.open-menu {
+    max-height: 400px;
+  }
+  .sub-menu {
+    background-color: #fff;
+    padding: 8px;
+    margin: 10px;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+  }
+
+  .user-info h3 {
+    font-weight: 500;
+  }
+
+  .user-info img {
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+
+  .sub-menu hr {
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0 10px;
+  }
+
+  .sub-menu-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+  }
+
+  .sub-menu-link p {
+    width: 100%;
+  }
+
+  .sub-menu-link img {
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 2px;
+    margin-right: 10px;
+  }
+
+  .sub-menu-link span {
+    font-size: 22px;
+    transition: transform 0.5s;
+  }
+
+  .sub-menu-link:hover span {
+    transform: translate(5px);
+  }
+
+  .sub-menu-link:hover p {
+    font-weight: 600;
+  }
+  /*End of Profile */
   /* The progress container (grey background) */
   .progress-container {
     width: 100%;

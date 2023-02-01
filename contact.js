@@ -21,6 +21,13 @@ ScrollReveal().reveal("header", {
   origin: "top",
 });
 
+//Profile toggle
+let subMenu = document.getElementById("subMenu");
+
+function toggleMenu() {
+  subMenu.classList.toggle("open-menu");
+}
+
 var config = {
   apiKey: "AIzaSyAwG7RePlLNiGGfs61BttyXserKakBlq74",
   authDomain: "pfd-asg-1.firebaseapp.com",

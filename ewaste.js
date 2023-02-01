@@ -57,6 +57,13 @@ function myFunction() {
   document.getElementById("myBar").style.width = scrolled + "%";
 }
 
+//Profile toggle
+let subMenu = document.getElementById("subMenu");
+
+function toggleMenu() {
+  subMenu.classList.toggle("open-menu");
+}
+
 //zoom in and out of image
 var zoom = document.getElementById("zoom");
 

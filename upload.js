@@ -52,6 +52,13 @@ function myFunction() {
   document.getElementById("myBar").style.width = scrolled + "%";
 }
 
+//Profile toggle
+let subMenu = document.getElementById("subMenu");
+
+function toggleMenu() {
+  subMenu.classList.toggle("open-menu");
+}
+
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/

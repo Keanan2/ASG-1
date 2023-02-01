@@ -37,6 +37,13 @@ function myFunction() {
   document.getElementById("myBar").style.width = scrolled + "%";
 }
 
+//Profile toggle
+let subMenu = document.getElementById("subMenu");
+
+function toggleMenu() {
+  subMenu.classList.toggle("open-menu");
+}
+
 // ------------ FOR USER AUTHENTICATION------------
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
