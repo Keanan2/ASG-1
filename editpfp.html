@@ -24,50 +24,56 @@
           <!-- Photo -->
           <fieldset>
             <div class="grid-35">
-              <label for="avatar">Your Photo</label>
+              <img id="profile-picture" src="#" alt="Profile picture">
+              <!-- <label for="avatar">Your Photo</label> -->
             </div>
             <div class="grid-65">
               <span class="photo" title="Upload your Avatar!"></span>
-              <input type="file" class="btnfile" />
+              <input type="file" id="profilePictureInput" class="btnfile" />
             </div>
           </fieldset>
 
           <!--Display Name-->
           <fieldset>
             <div class="grid-35">
-              <label for="location">Display Name</label>
+              <label for="displayNameInput">Display Name</label>
             </div>
             <div class="grid-65">
-              <input type="text" id="location" tabindex="1" />
+              <input type="text" id="displayNameInput" tabindex="1" />
             </div>
           </fieldset>
 
           <!--Current Password-->
           <fieldset>
             <div class="grid-35">
-              <label for="fname">Current Password</label>
+              <label for="currentPasswordInput">Current Password</label>
             </div>
             <div class="grid-65">
-              <input type="text" id="fname" tabindex="2" />
+              <input type="text" id="currentPasswordInput" tabindex="2" />
             </div>
           </fieldset>
 
           <!--New Password-->
           <fieldset>
             <div class="grid-35">
-              <label for="lname">New Password</label>
+              <label for="newPasswordInput">New Password</label>
             </div>
             <div class="grid-65">
-              <input type="text" id="lname" tabindex="3" />
+              <input type="text" id="newPasswordInput" tabindex="3" />
             </div>
           </fieldset>
         </form>
       </div>
       <!--buttons-->
       <div class="buttons">
-        <button class="btn" id="savebtn">Save</button>
+        <button class="btn" id="submitButton">Save</button>
         <button class="btn" onclick="history.go(-1)">Return Back</button>
       </div>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+    <script src="editpfp.js"></script>
   </body>
 </html>
