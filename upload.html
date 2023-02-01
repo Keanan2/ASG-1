@@ -222,9 +222,8 @@
             <li><a href="ewaste.html"> What is E-waste? </a></li>
             <li><a href="marketplace.html"> Marketplace </a></li>
             <li><a href="contactus.html"> Contact Us! </a></li>
-            <li><a href="#" id="signOut"> Log Out</a></li>
+            <li><a href="feedback.html">Feedback! </a></li>
           </ul>
-          <a href="feedback.html">Feedback! </a>
         </div>
         <div class="hr"></div>
         <div class="follow group">
@@ -279,7 +278,12 @@
           Files.push(thefiles[i]);
         }
 
-        if (num > 1) alert("Only 1 image is allowed!");
+        if (num > 1)
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Only 1 image is allowed!",
+          });
       }
 
       function CreateImgTags() {
@@ -377,7 +381,11 @@
           },
 
           (error) => {
-            alert("Error: Image failed to upload. Please try again.");
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Error: Image failed to upload. Please try again.",
+            });
           },
 
           () => {
