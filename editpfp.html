@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="editpfp.css" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <header>
+    <!-- navbar -->
+    <div id="navbar">
+      <div id="navbar-content">
+        <h2>nge<span>e</span>-waste.</h2>
+      </div>
+    </div>
+  </header>
+  <body>
+    <div class="wrapper">
+      <div class="profile">
+        <div class="content">
+          <h1>Edit Profile</h1>
+          <form action="">
+            <!-- Photo -->
+            <fieldset>
+              <div class="grid-35">
+                <label for="avatar">Your Photo</label>
+              </div>
+              <div class="grid-65">
+                <span class="photo" title="Upload your Avatar!"></span>
+                <input type="file" class="btnfile" />
+              </div>
+            </fieldset>
+
+            <!--Display Name-->
+            <fieldset>
+              <div class="grid-35">
+                <label for="location">Display Name</label>
+              </div>
+              <div class="grid-65">
+                <input type="text" id="location" tabindex="1" />
+              </div>
+            </fieldset>
+
+            <!--Current Password-->
+            <fieldset>
+              <div class="grid-35">
+                <label for="fname">Current Password</label>
+              </div>
+              <div class="grid-65">
+                <input type="text" id="fname" tabindex="2" />
+              </div>
+            </fieldset>
+
+            <!--New Password-->
+            <fieldset>
+              <div class="grid-35">
+                <label for="lname">New Password</label>
+              </div>
+              <div class="grid-65">
+                <input type="text" id="lname" tabindex="3" />
+              </div>
+            </fieldset>
+
+            <!--buttons-->
+            <div class="buttons">
+              <button class="btn" id="savebtn">Save</button>
+              <button class="btn" onclick="history.back()">Return Back</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
