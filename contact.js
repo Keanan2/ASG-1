@@ -1,3 +1,26 @@
+//To create reveal animations
+ScrollReveal({
+  //reset: true,
+  distance: "60px",
+  duration: 2500,
+  delay: 400,
+});
+
+//target elements, and specify options to create reveal animations
+ScrollReveal().reveal(".main-title, .section-title, .container h1", {
+  delay: 500,
+  origin: "left",
+});
+ScrollReveal().reveal(".radiocontainer, li", {
+  delay: 600,
+  origin: "bottom",
+});
+
+ScrollReveal().reveal("header", {
+  delay: 500,
+  origin: "top",
+});
+
 var config = {
   apiKey: "AIzaSyAwG7RePlLNiGGfs61BttyXserKakBlq74",
   authDomain: "pfd-asg-1.firebaseapp.com",
