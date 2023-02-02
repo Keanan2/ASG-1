@@ -44,6 +44,16 @@ submitButton.addEventListener("click", function() {
 
   // Get the current user
   var user = auth.currentUser;
+
+  if (newPassword && newPassword.length < 6) {
+    console.error("New password should be at least 6 characters");
+    Swal.fire({
+      icon: "error",
+      text: "New password should be at least 6 characters",
+    });
+    return;
+    }
+
   // Sign in the user with their current password
   if (newPassword) {
     // Sign in the user with their current password
