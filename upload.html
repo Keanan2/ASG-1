@@ -435,17 +435,22 @@
 
       //----------------------UPLOAD A PRODUCT---------------------
       function UploadAProduct() {
-        set(ref(realdb, "TheProductRealdb/" + getShortTitle()), {
-          ProductTitle: name.value,
-          Description: description.value,
-          LinksOfImagesArray: ImageLinksArray,
-        });
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+              set(ref(realdb, "TheProductRealdb/" + getShortTitle()), {
+              ProductTitle: name.value,
+              Description: description.value,
+              LinksOfImagesArray: ImageLinksArray,
+              UploadedBy: user.email, 
+            });
 
-        Swal.fire({
-          icon: "success",
-          text: "Upload Successful!",
+            Swal.fire({
+              icon: "success",
+              text: "Upload Successful!",
+            });
+            RestoreBack();
+            }
         });
-        RestoreBack();
       }
     </script>
     <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>

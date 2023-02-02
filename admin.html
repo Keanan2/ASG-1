@@ -21,7 +21,7 @@
   </header>
   <body>
     <!--Add Products section-->
-    <section class="sec-02">
+    <section id="addProduct" class="sec-02">
       <div class="container">
         <h3 class="section-title">Add Product Here</h3>
         <div class="listingcontent">
@@ -254,18 +254,24 @@
       //----------------------UPLOAD A PRODUCT---------------------
 
       function UploadAProduct() {
-        set(ref(realdb, "TheProductRealdb/" + getShortTitle()), {
-          ProductTitle: name.value,
-          Description: description.value,
-          LinksOfImagesArray: ImageLinksArray,
-        });
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+              set(ref(realdb, "TheProductRealdb/" + getShortTitle()), {
+              ProductTitle: name.value,
+              Description: description.value,
+              LinksOfImagesArray: ImageLinksArray,
+              UploadedBy: user.email, 
+            });
 
-        Swal.fire({
-          icon: "success",
-          text: "Upload Successful!",
+            Swal.fire({
+              icon: "success",
+              text: "Upload Successful!",
+            });
+            RestoreBack();
+            }
         });
-        RestoreBack();
       }
+      
       var OuterDiv = document.getElementById("productsDiv");
       var ArrayOfProducts = [];
       window.addEventListener("load", GetAllProducts);
@@ -308,6 +314,13 @@
           <h5 class="description">` +
           product.Description +
           `</h5>
+          ` +
+          `
+          <h5 class="uploaded by">` +
+          product.UploadedBy +
+          `</h5>
+          ` + 
+          `
           <button class="bn59" id="${
             "delbtn" + product.ProductTitle + Date.now()
           }" style="background-color: red">Delete</button>
