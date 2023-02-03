@@ -124,6 +124,7 @@
 
   .user-info {
     display: flex;
+    white-space: nowrap;
     align-items: center;
     margin-left: 15px;
   }

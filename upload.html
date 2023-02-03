@@ -40,7 +40,7 @@
           <div class="sub-menu">
             <div class="user-info">
               <img src="img/user.png" />
-              <h2 id="displayNamePlaceholder"></h2>
+              <h3 id="displayNamePlaceholder"></h3>
               <!--DisplayName variable-->
             </div>
             <hr />
@@ -435,13 +435,13 @@
 
       //----------------------UPLOAD A PRODUCT---------------------
       function UploadAProduct() {
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-              set(ref(realdb, "TheProductRealdb/" + getShortTitle()), {
+        firebase.auth().onAuthStateChanged(function (user) {
+          if (user) {
+            set(ref(realdb, "TheProductRealdb/" + getShortTitle()), {
               ProductTitle: name.value,
               Description: description.value,
               LinksOfImagesArray: ImageLinksArray,
-              UploadedBy: user.email, 
+              UploadedBy: user.email,
             });
 
             Swal.fire({
@@ -449,7 +449,7 @@
               text: "Upload Successful!",
             });
             RestoreBack();
-            }
+          }
         });
       }
     </script>
