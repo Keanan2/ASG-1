@@ -126,3 +126,9 @@ firebase.auth().onAuthStateChanged(function (user) {
     window.location.href = "signUp.html";
   }
 });
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    document.getElementById("displayNamePlaceholder").innerHTML = user.displayName;
+  }
+});
